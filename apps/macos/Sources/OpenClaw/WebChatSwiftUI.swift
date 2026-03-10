@@ -10,9 +10,9 @@ import SwiftUI
 private let webChatSwiftLogger = Logger(subsystem: "ai.openclaw", category: "WebChatSwiftUI")
 
 private enum WebChatSwiftUILayout {
-    static let windowSize = NSSize(width: 500, height: 840)
+    static let windowSize = NSSize(width: 1440, height: 920)
     static let panelSize = NSSize(width: 480, height: 640)
-    static let windowMinSize = NSSize(width: 480, height: 360)
+    static let windowMinSize = NSSize(width: 1180, height: 720)
     static let anchorPadding: CGFloat = 8
 }
 
@@ -141,7 +141,7 @@ struct MacGatewayChatTransport: OpenClawChatTransport, Sendable {
 final class WebChatSwiftUIWindowController {
     private let presentation: WebChatPresentation
     private let sessionKey: String
-    private let hosting: NSHostingController<OpenClawChatView>
+    private let contentHosting: NSHostingController<AnyView>
     private let contentController: NSViewController
     private var window: NSWindow?
     private var dismissMonitor: Any?
@@ -155,13 +155,11 @@ final class WebChatSwiftUIWindowController {
     init(sessionKey: String, presentation: WebChatPresentation, transport: any OpenClawChatTransport) {
         self.sessionKey = sessionKey
         self.presentation = presentation
-        let vm = OpenClawChatViewModel(sessionKey: sessionKey, transport: transport)
-        let accent = Self.color(fromHex: AppStateStore.shared.seamColorHex)
-        self.hosting = NSHostingController(rootView: OpenClawChatView(
-            viewModel: vm,
-            showsSessionSwitcher: true,
-            userAccent: accent))
-        self.contentController = Self.makeContentController(for: presentation, hosting: self.hosting)
+        self.contentHosting = NSHostingController(rootView: Self.makeRootView(
+            sessionKey: sessionKey,
+            presentation: presentation,
+            transport: transport))
+        self.contentController = Self.makeContentController(for: presentation, hosting: self.contentHosting)
         self.window = Self.makeWindow(for: presentation, contentViewController: self.contentController)
     }
 
@@ -173,12 +171,6 @@ final class WebChatSwiftUIWindowController {
 
     func show() {
         guard let window else { return }
-        if window.isVisible && window.isKeyWindow && !window.isMiniaturized {
-            window.miniaturize(nil)
-            self.onVisibilityChanged?(false)
-            return
-        }
-
         self.ensureWindowSize()
         if window.isMiniaturized {
             window.deminiaturize(nil)
@@ -317,7 +309,7 @@ final class WebChatSwiftUIWindowController {
 
     private static func makeContentController(
         for presentation: WebChatPresentation,
-        hosting: NSHostingController<OpenClawChatView>) -> NSViewController
+        hosting: NSHostingController<AnyView>) -> NSViewController
     {
         let controller = NSViewController()
         let effectView = NSVisualEffectView()
@@ -378,5 +370,26 @@ final class WebChatSwiftUIWindowController {
 
     private static func color(fromHex raw: String?) -> Color? {
         ColorHexSupport.color(fromHex: raw)
+    }
+
+    private static func makeRootView(
+        sessionKey: String,
+        presentation: WebChatPresentation,
+        transport: any OpenClawChatTransport) -> AnyView
+    {
+        switch presentation {
+        case .window:
+            return AnyView(MacWorkspaceView(
+                initialSessionKey: sessionKey,
+                state: AppStateStore.shared,
+                transport: transport))
+        case .panel:
+            let vm = OpenClawChatViewModel(sessionKey: sessionKey, transport: transport)
+            let accent = Self.color(fromHex: AppStateStore.shared.seamColorHex)
+            return AnyView(OpenClawChatView(
+                viewModel: vm,
+                showsSessionSwitcher: true,
+                userAccent: accent))
+        }
     }
 }

@@ -58,6 +58,7 @@
 		2B1A5E57EAE5A5D63E2A1A0E /* MacNodeRuntimeMainActorServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C792B7FA8AA71CAE61144 /* MacNodeRuntimeMainActorServices.swift */; };
 		2BA8AC9E16064AA1CD325C95 /* AudioInputDeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5176E624F31FD7DEE6409B71 /* AudioInputDeviceObserver.swift */; };
 		2E52BFD95318A58B70D10480 /* VoicePushToTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22826BCF09F5EDD5DD64285B /* VoicePushToTalk.swift */; };
+		349DAA658DBC9CBBC0614EE6 /* MacWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720995039383FC927C5A2864 /* MacWorkspaceView.swift */; };
 		34B32D1B2378C516C704F438 /* OpenClawProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 45AF3DC2DE33380DD52D6893 /* OpenClawProtocol */; };
 		35CFBE1450489E231A177AE7 /* ios-device-identifiers.json in Resources */ = {isa = PBXBuildFile; fileRef = 109FA50452F2E0F7ED9157EC /* ios-device-identifiers.json */; };
 		38334E2FC12392FA98C0A61C /* DeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD3A49D21C48BFF53A5E15F /* DeepLinks.swift */; };
@@ -400,6 +401,7 @@
 		6FA70634E0F69DE9C4383E38 /* NOTICE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTICE.md; sourceTree = "<group>"; };
 		706DFE525B70288212270B09 /* CameraCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureService.swift; sourceTree = "<group>"; };
 		71896A69C741C8736ADDEDCB /* CoalescingFSEventsWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoalescingFSEventsWatcher.swift; sourceTree = "<group>"; };
+		720995039383FC927C5A2864 /* MacWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacWorkspaceView.swift; sourceTree = "<group>"; };
 		7302DCB22F80E5CD8166F908 /* SimpleTaskSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTaskSupport.swift; sourceTree = "<group>"; };
 		73206DA9455FCC6D3F7A4325 /* VoiceWakeRecognitionDebugSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceWakeRecognitionDebugSupport.swift; sourceTree = "<group>"; };
 		7683877040A7BDF8F6644AE3 /* ConnectionModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModeCoordinator.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 				A7BA1EA342C15C7E74FDBC71 /* Launchctl.swift */,
 				5AB5127B2CDEF6BDB0EC213C /* LaunchdManager.swift */,
 				9E8388BCB3AD6019C92B0D04 /* LogLocator.swift */,
+				720995039383FC927C5A2864 /* MacWorkspaceView.swift */,
 				4075967A7D97EF1ECF0E317C /* MenuBar.swift */,
 				293A53B6C2ACFA4A291D4334 /* MenuContentView.swift */,
 				002648B19F4E2A66B2BCD4A8 /* MenuContextCardInjector.swift */,
@@ -1175,6 +1178,7 @@
 				960CB3079A7C98193E66DB76 /* MacNodeRuntime.swift in Sources */,
 				2B1A5E57EAE5A5D63E2A1A0E /* MacNodeRuntimeMainActorServices.swift in Sources */,
 				B61BFB681FB3CE96B0C6E52F /* MacNodeScreenCommands.swift in Sources */,
+				349DAA658DBC9CBBC0614EE6 /* MacWorkspaceView.swift in Sources */,
 				BDF0C1553C9FA7601CC62AB1 /* MenuBar.swift in Sources */,
 				8D44D26057E3E34590656B17 /* MenuContentView.swift in Sources */,
 				F52D391106F5A9366FB48094 /* MenuContextCardInjector.swift in Sources */,

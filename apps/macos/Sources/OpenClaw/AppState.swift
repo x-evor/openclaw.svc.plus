@@ -226,19 +226,35 @@ final class AppState {
     }
 
     var authStatus: AccountAuthStatus {
-        didSet { self.ifNotPreview { UserDefaults.standard.set(self.authStatus.rawValue, forKey: accountAuthStatusKey) } }
+        didSet {
+            self.ifNotPreview {
+                UserDefaults.standard.set(self.authStatus.rawValue, forKey: accountAuthStatusKey)
+            }
+        }
     }
 
     var accountServerURL: String {
-        didSet { self.ifNotPreview { UserDefaults.standard.set(self.accountServerURL, forKey: accountServerURLKey) } }
+        didSet {
+            self.ifNotPreview {
+                UserDefaults.standard.set(self.accountServerURL, forKey: accountServerURLKey)
+            }
+        }
     }
 
     var syncServiceURL: String {
-        didSet { self.ifNotPreview { UserDefaults.standard.set(self.syncServiceURL, forKey: accountSyncServiceURLKey) } }
+        didSet {
+            self.ifNotPreview {
+                UserDefaults.standard.set(self.syncServiceURL, forKey: accountSyncServiceURLKey)
+            }
+        }
     }
 
     var nodeServiceURL: String {
-        didSet { self.ifNotPreview { UserDefaults.standard.set(self.nodeServiceURL, forKey: accountNodeServiceURLKey) } }
+        didSet {
+            self.ifNotPreview {
+                UserDefaults.standard.set(self.nodeServiceURL, forKey: accountNodeServiceURLKey)
+            }
+        }
     }
 
     var currentUser: AccountUser? {
@@ -287,7 +303,12 @@ final class AppState {
             self.iconAnimationsEnabled = true
             UserDefaults.standard.set(true, forKey: iconAnimationsEnabledKey)
         }
-        self.showDockIcon = UserDefaults.standard.bool(forKey: showDockIconKey)
+        if let storedShowDockIcon = UserDefaults.standard.object(forKey: showDockIconKey) as? Bool {
+            self.showDockIcon = storedShowDockIcon
+        } else {
+            self.showDockIcon = true
+            UserDefaults.standard.set(true, forKey: showDockIconKey)
+        }
         self.voiceWakeMicID = UserDefaults.standard.string(forKey: voiceWakeMicKey) ?? ""
         self.voiceWakeMicName = UserDefaults.standard.string(forKey: voiceWakeMicNameKey) ?? ""
         self.voiceWakeLocaleID = UserDefaults.standard.string(forKey: voiceWakeLocaleKey) ?? Locale.current.identifier
@@ -748,7 +769,7 @@ final class AppState {
         return try? JSONDecoder().decode(type, from: data)
     }
 
-    private static func storeCodable<Value: Encodable>(_ value: Value?, key: String) {
+    private static func storeCodable(_ value: (some Encodable)?, key: String) {
         guard let value else {
             UserDefaults.standard.removeObject(forKey: key)
             return

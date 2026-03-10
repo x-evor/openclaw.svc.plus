@@ -50,6 +50,16 @@ struct WebChatSwiftUISmokeTests {
         controller.close()
     }
 
+    @Test func workspaceViewBuildsBody() {
+        let state = AppState(preview: true)
+        let view = MacWorkspaceView(
+            initialSessionKey: "main",
+            state: state,
+            updater: nil,
+            transport: TestTransport())
+        _ = view.body
+    }
+
     @Test func panelControllerPresentAndClose() {
         let anchor = { NSRect(x: 200, y: 400, width: 40, height: 40) }
         let controller = WebChatSwiftUIWindowController(

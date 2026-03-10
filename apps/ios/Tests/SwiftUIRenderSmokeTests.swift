@@ -48,6 +48,18 @@ import UIKit
         _ = Self.host(root)
     }
 
+    @Test @MainActor func rootCanvasBuildsAViewHierarchy() {
+        let appModel = NodeAppModel()
+        let gatewayController = GatewayConnectionController(appModel: appModel, startDiscovery: false)
+
+        let root = RootCanvas()
+            .environment(appModel)
+            .environment(appModel.voiceWake)
+            .environment(gatewayController)
+
+        _ = Self.host(root)
+    }
+
     @Test @MainActor func voiceTabBuildsAViewHierarchy() {
         let appModel = NodeAppModel()
 

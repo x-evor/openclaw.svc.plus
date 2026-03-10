@@ -237,7 +237,7 @@ private final class MockWatchMessagingService: @preconcurrency WatchMessagingSer
             transport: "transferUserInfo")
         let appModel = NodeAppModel(watchMessagingService: watchService)
         let params = OpenClawWatchNotifyParams(
-            title: "OpenClaw",
+            title: "XWorkmate",
             body: "Meeting with Peter is at 4pm",
             priority: .timeSensitive)
         let paramsData = try JSONEncoder().encode(params)
@@ -249,7 +249,7 @@ private final class MockWatchMessagingService: @preconcurrency WatchMessagingSer
 
         let res = await appModel._test_handleInvoke(req)
         #expect(res.ok == true)
-        #expect(watchService.lastSent?.params.title == "OpenClaw")
+        #expect(watchService.lastSent?.params.title == "XWorkmate")
         #expect(watchService.lastSent?.params.body == "Meeting with Peter is at 4pm")
         #expect(watchService.lastSent?.params.priority == .timeSensitive)
 
@@ -357,7 +357,7 @@ private final class MockWatchMessagingService: @preconcurrency WatchMessagingSer
             code: 1,
             userInfo: [NSLocalizedDescriptionKey: "WATCH_UNAVAILABLE: no paired Apple Watch"])
         let appModel = NodeAppModel(watchMessagingService: watchService)
-        let params = OpenClawWatchNotifyParams(title: "OpenClaw", body: "Delivery check")
+        let params = OpenClawWatchNotifyParams(title: "XWorkmate", body: "Delivery check")
         let paramsData = try JSONEncoder().encode(params)
         let paramsJSON = String(decoding: paramsData, as: UTF8.self)
         let req = BridgeInvokeRequest(

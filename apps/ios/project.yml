@@ -1,4 +1,4 @@
-name: OpenClaw
+name: XWorkmate
 options:
   bundleIdPrefix: ai.openclaw
   deploymentTarget:
@@ -17,17 +17,17 @@ packages:
     path: ../../Swabble
 
 schemes:
-  OpenClaw:
+  XWorkmate:
     shared: true
     build:
       targets:
-        OpenClaw: all
+        XWorkmate: all
     test:
       targets:
-        - OpenClawTests
+        - XWorkmateTests
 
 targets:
-  OpenClaw:
+  XWorkmate:
     type: application
     platform: iOS
     configFiles:
@@ -36,11 +36,11 @@ targets:
     sources:
       - path: Sources
     dependencies:
-      - target: OpenClawShareExtension
+      - target: XWorkmateShareExtension
         embed: true
-      - target: OpenClawActivityWidget
+      - target: XWorkmateActivityWidget
         embed: true
-      - target: OpenClawWatchApp
+      - target: XWorkmateWatchApp
       - package: OpenClawKit
       - package: OpenClawKit
         product: OpenClawChatUI
@@ -82,6 +82,7 @@ targets:
         CODE_SIGN_STYLE: "$(OPENCLAW_CODE_SIGN_STYLE)"
         DEVELOPMENT_TEAM: "$(OPENCLAW_DEVELOPMENT_TEAM)"
         PRODUCT_BUNDLE_IDENTIFIER: "$(OPENCLAW_APP_BUNDLE_ID)"
+        PRODUCT_MODULE_NAME: OpenClaw
         PROVISIONING_PROFILE_SPECIFIER: "$(OPENCLAW_APP_PROFILE)"
         TARGETED_DEVICE_FAMILY: "1"
         SWIFT_VERSION: "6.0"
@@ -92,7 +93,7 @@ targets:
     info:
       path: Sources/Info.plist
       properties:
-        CFBundleDisplayName: OpenClaw
+        CFBundleDisplayName: XWorkmate
         CFBundleIconName: AppIcon
         CFBundleURLTypes:
           - CFBundleURLName: ai.openclaw.ios
@@ -108,16 +109,16 @@ targets:
           - remote-notification
         BGTaskSchedulerPermittedIdentifiers:
           - ai.openclaw.ios.bgrefresh
-        NSLocalNetworkUsageDescription: OpenClaw discovers and connects to your OpenClaw gateway on the local network.
+        NSLocalNetworkUsageDescription: XWorkmate discovers and connects to your XWorkmate gateway on the local network.
         NSAppTransportSecurity:
           NSAllowsArbitraryLoadsInWebContent: true
         NSBonjourServices:
           - _openclaw-gw._tcp
-        NSCameraUsageDescription: OpenClaw can capture photos or short video clips when requested via the gateway.
-        NSLocationWhenInUseUsageDescription: OpenClaw uses your location when you allow location sharing.
-        NSLocationAlwaysAndWhenInUseUsageDescription: OpenClaw can share your location in the background when you enable Always.
-        NSMicrophoneUsageDescription: OpenClaw needs microphone access for voice wake.
-        NSSpeechRecognitionUsageDescription: OpenClaw uses on-device speech recognition for voice wake.
+        NSCameraUsageDescription: XWorkmate can capture photos or short video clips when requested via the gateway.
+        NSLocationWhenInUseUsageDescription: XWorkmate uses your location when you allow location sharing.
+        NSLocationAlwaysAndWhenInUseUsageDescription: XWorkmate can share your location in the background when you enable Always.
+        NSMicrophoneUsageDescription: XWorkmate needs microphone access for voice wake.
+        NSSpeechRecognitionUsageDescription: XWorkmate uses on-device speech recognition for voice wake.
         NSSupportsLiveActivities: true
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
@@ -130,7 +131,7 @@ targets:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
 
-  OpenClawShareExtension:
+  XWorkmateShareExtension:
     type: app-extension
     platform: iOS
     configFiles:
@@ -155,7 +156,7 @@ targets:
     info:
       path: ShareExtension/Info.plist
       properties:
-        CFBundleDisplayName: OpenClaw Share
+        CFBundleDisplayName: XWorkmate Share
         CFBundleShortVersionString: "2026.3.10"
         CFBundleVersion: "20260301"
         NSExtension:
@@ -168,7 +169,7 @@ targets:
               NSExtensionActivationSupportsImageWithMaxCount: 10
               NSExtensionActivationSupportsMovieWithMaxCount: 1
 
-  OpenClawActivityWidget:
+  XWorkmateActivityWidget:
     type: app-extension
     platform: iOS
     configFiles:
@@ -192,21 +193,21 @@ targets:
     info:
       path: ActivityWidget/Info.plist
       properties:
-        CFBundleDisplayName: OpenClaw Activity
+        CFBundleDisplayName: XWorkmate Activity
         CFBundleShortVersionString: "2026.3.10"
         CFBundleVersion: "20260301"
         NSSupportsLiveActivities: true
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
 
-  OpenClawWatchApp:
+  XWorkmateWatchApp:
     type: application.watchapp2
     platform: watchOS
     deploymentTarget: "11.0"
     sources:
       - path: WatchApp
     dependencies:
-      - target: OpenClawWatchExtension
+      - target: XWorkmateWatchExtension
     configFiles:
       Debug: Config/Signing.xcconfig
       Release: Config/Signing.xcconfig
@@ -218,13 +219,13 @@ targets:
     info:
       path: WatchApp/Info.plist
       properties:
-        CFBundleDisplayName: OpenClaw
+        CFBundleDisplayName: XWorkmate
         CFBundleShortVersionString: "2026.3.10"
         CFBundleVersion: "20260301"
         WKCompanionAppBundleIdentifier: "$(OPENCLAW_APP_BUNDLE_ID)"
         WKWatchKitApp: true
 
-  OpenClawWatchExtension:
+  XWorkmateWatchExtension:
     type: watchkit2-extension
     platform: watchOS
     deploymentTarget: "11.0"
@@ -243,7 +244,7 @@ targets:
     info:
       path: WatchExtension/Info.plist
       properties:
-        CFBundleDisplayName: OpenClaw
+        CFBundleDisplayName: XWorkmate
         CFBundleShortVersionString: "2026.3.10"
         CFBundleVersion: "20260301"
         NSExtension:
@@ -251,7 +252,7 @@ targets:
             WKAppBundleIdentifier: "$(OPENCLAW_WATCH_APP_BUNDLE_ID)"
           NSExtensionPointIdentifier: com.apple.watchkit
 
-  OpenClawTests:
+  XWorkmateTests:
     type: bundle.unit-test
     platform: iOS
     configFiles:
@@ -260,7 +261,7 @@ targets:
     sources:
       - path: Tests
     dependencies:
-      - target: OpenClaw
+      - target: XWorkmate
       - package: Swabble
         product: SwabbleKit
       - sdk: AppIntents.framework
@@ -273,11 +274,11 @@ targets:
         ENABLE_APP_INTENTS_METADATA_GENERATION: NO
         SWIFT_VERSION: "6.0"
         SWIFT_STRICT_CONCURRENCY: complete
-        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/OpenClaw.app/OpenClaw"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/XWorkmate.app/XWorkmate"
         BUNDLE_LOADER: "$(TEST_HOST)"
     info:
       path: Tests/Info.plist
       properties:
-        CFBundleDisplayName: OpenClawTests
+        CFBundleDisplayName: XWorkmateTests
         CFBundleShortVersionString: "2026.3.10"
         CFBundleVersion: "20260301"

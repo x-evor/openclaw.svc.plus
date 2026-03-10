@@ -1,8 +1,8 @@
-# OpenClaw iOS (Super Alpha)
+# XWorkmate iOS (Super Alpha)
 
 NO TEST FLIGHT AVAILABLE AT THIS POINT
 
-This iPhone app is super-alpha and internal-use only. It connects to an OpenClaw Gateway as a `role: node`.
+This iPhone app is super-alpha and internal-use only. It connects to an XWorkmate gateway as a `role: node`.
 
 ## Distribution Status
 
@@ -32,11 +32,11 @@ pnpm install
 ./scripts/ios-configure-signing.sh
 cd apps/ios
 xcodegen generate
-open OpenClaw.xcodeproj
+open XWorkmate.xcworkspace
 ```
 
 3. In Xcode:
-   - Scheme: `OpenClaw`
+   - Scheme: `XWorkmate`
    - Destination: connected iPhone (recommended for real behavior)
    - Build configuration: `Debug`
    - Run (`Product` -> `Run`)
@@ -44,7 +44,7 @@ open OpenClaw.xcodeproj
    - Use unique local bundle IDs via `apps/ios/LocalSigning.xcconfig`.
    - Start from `apps/ios/LocalSigning.xcconfig.example`.
 
-Shortcut command (same flow + open project):
+Shortcut command (same flow + open workspace):
 
 ```bash
 pnpm ios:open

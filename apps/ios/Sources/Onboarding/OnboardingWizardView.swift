@@ -307,7 +307,7 @@ struct OnboardingWizardView: View {
                 .font(.largeTitle.weight(.bold))
                 .padding(.bottom, 8)
 
-            Text("Connect to your OpenClaw gateway")
+            Text("Connect to your XWorkmate gateway")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -538,7 +538,7 @@ struct OnboardingWizardView: View {
                             + "1) `openclaw devices approve` (or `openclaw devices approve <requestId>`)\n"
                             + "2) `/pair approve` in Telegram\n"
                             + "\(requestLine)\n"
-                            + "OpenClaw will also retry automatically when you return to this app.")
+                            + "XWorkmate will also retry automatically when you return to this app.")
                 }
             }
 
@@ -595,7 +595,7 @@ struct OnboardingWizardView: View {
             Button {
                 self.onClose()
             } label: {
-                Text("Open OpenClaw")
+                Text("Open XWorkmate")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)

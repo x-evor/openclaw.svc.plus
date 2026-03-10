@@ -62,6 +62,17 @@ struct SettingsTab: View {
         NavigationStack {
             Form {
                 Section {
+                    SettingsSeriesHero(
+                        title: "设置",
+                        subtitle: "偏好、连接与设备能力",
+                        statusText: self.isGatewayConnected ? self.gatewaySummaryText : "未连接",
+                        dismiss: { self.dismiss() })
+                }
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0))
+                .listRowBackground(Color.clear)
+                .listSectionSeparator(.hidden)
+
+                Section("连接与网关") {
                     DisclosureGroup(isExpanded: self.$gatewayExpanded) {
                         if !self.isGatewayConnected {
                             Text(
@@ -248,8 +259,11 @@ struct SettingsTab: View {
                         }
                     }
                 }
+                .textCase(nil)
+                .listRowBackground(SettingsSeriesPalette.surface)
+                .listSectionSeparator(.hidden)
 
-                Section("Device") {
+                Section("设备与能力") {
                     DisclosureGroup("Features") {
                         self.featureToggle(
                             "Voice Wake",
@@ -260,7 +274,7 @@ struct SettingsTab: View {
                         self.featureToggle(
                             "Talk Mode",
                             isOn: self.$talkEnabled,
-                            help: "Enables voice conversation mode with your connected OpenClaw agent.") { newValue in
+                            help: "Enables voice conversation mode with your connected XWorkmate agent.") { newValue in
                                 self.appModel.setTalkEnabled(newValue)
                             }
                         self.featureToggle(
@@ -280,7 +294,7 @@ struct SettingsTab: View {
                             "Allow Camera",
                             isOn: self.$cameraEnabled,
                             help: "Allows the gateway to request photos or short video clips "
-                                + "while OpenClaw is foregrounded."
+                                + "while XWorkmate is foregrounded."
                         )
 
                         HStack(spacing: 8) {
@@ -289,7 +303,7 @@ struct SettingsTab: View {
                             Button {
                                 self.activeFeatureHelp = FeatureHelp(
                                     title: "Location Access",
-                                    message: "Controls location permissions for OpenClaw. "
+                                    message: "Controls location permissions for XWorkmate. "
                                         + "Off disables location tools, While Using enables "
                                         + "foreground location, and Always enables "
                                         + "background location."
@@ -312,7 +326,7 @@ struct SettingsTab: View {
                         self.featureToggle(
                             "Prevent Sleep",
                             isOn: self.$preventSleep,
-                            help: "Keeps the screen awake while OpenClaw is open.")
+                            help: "Keeps the screen awake while XWorkmate is open.")
 
                         DisclosureGroup("Advanced") {
                             VStack(alignment: .leading, spacing: 8) {
@@ -355,7 +369,7 @@ struct SettingsTab: View {
                                     self.activeFeatureHelp = FeatureHelp(
                                         title: "Default Share Instruction",
                                         message: "Appends this instruction when sharing content "
-                                            + "into OpenClaw from iOS."
+                                            + "into XWorkmate from iOS."
                                     )
                                 } label: {
                                     Image(systemName: "info.circle")
@@ -387,11 +401,17 @@ struct SettingsTab: View {
                             .truncationMode(.middle)
                         LabeledContent("Device", value: DeviceInfoHelper.deviceFamily())
                         LabeledContent("Platform", value: DeviceInfoHelper.platformStringForDisplay())
-                        LabeledContent("OpenClaw", value: DeviceInfoHelper.openClawVersionString())
+                        LabeledContent("XWorkmate", value: DeviceInfoHelper.openClawVersionString())
                     }
                 }
+                .textCase(nil)
+                .listRowBackground(SettingsSeriesPalette.surface)
+                .listSectionSeparator(.hidden)
             }
-            .navigationTitle("Settings")
+            .scrollContentBackground(.hidden)
+            .background(SettingsSeriesPalette.canvas)
+            .listStyle(.insetGrouped)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -1030,3 +1050,70 @@ struct SettingsTab: View {
     }
 }
 // swiftlint:enable type_body_length
+
+private struct SettingsSeriesHero: View {
+    let title: String
+    let subtitle: String
+    let statusText: String
+    let dismiss: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("首页")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                    Text(self.title)
+                        .font(.system(size: 34, weight: .bold))
+                        .foregroundStyle(.primary)
+                }
+
+                Spacer()
+
+                Button(action: self.dismiss) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .frame(width: 48, height: 48)
+                        .background(
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [SettingsSeriesPalette.actionStart, SettingsSeriesPalette.actionEnd],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing))
+                        )
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Close settings")
+            }
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text(self.subtitle)
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                Text(self.statusText)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.primary)
+            }
+        }
+        .padding(24)
+        .background(
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .fill(SettingsSeriesPalette.surface)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .strokeBorder(SettingsSeriesPalette.stroke, lineWidth: 1)
+        }
+    }
+}
+
+private enum SettingsSeriesPalette {
+    static let canvas = Color(red: 0.96, green: 0.94, blue: 0.97)
+    static let surface = Color.white.opacity(0.88)
+    static let stroke = Color(red: 0.84, green: 0.82, blue: 0.90)
+    static let actionStart = Color(red: 0.43, green: 0.58, blue: 1.0)
+    static let actionEnd = Color(red: 0.40, green: 0.34, blue: 0.96)
+}

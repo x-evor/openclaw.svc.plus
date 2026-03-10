@@ -4,10 +4,7 @@ import UIKit
 struct RootCanvas: View {
     @Environment(NodeAppModel.self) private var appModel
     @Environment(GatewayConnectionController.self) private var gatewayController
-    @Environment(VoiceWakeManager.self) private var voiceWake
-    @Environment(\.colorScheme) private var systemColorScheme
     @Environment(\.scenePhase) private var scenePhase
-    @AppStorage(VoiceWakePreferences.enabledKey) private var voiceWakeEnabled: Bool = false
     @AppStorage("screen.preventSleep") private var preventSleep: Bool = true
     @AppStorage("canvas.debugStatusEnabled") private var canvasDebugStatusEnabled: Bool = false
     @AppStorage("onboarding.requestID") private var onboardingRequestID: Int = 0
@@ -18,8 +15,6 @@ struct RootCanvas: View {
     @AppStorage("gateway.manual.host") private var manualGatewayHost: String = ""
     @AppStorage("onboarding.quickSetupDismissed") private var quickSetupDismissed: Bool = false
     @State private var presentedSheet: PresentedSheet?
-    @State private var voiceWakeToastText: String?
-    @State private var toastDismissTask: Task<Void, Never>?
     @State private var showOnboarding: Bool = false
     @State private var onboardingAllowSkip: Bool = true
     @State private var didEvaluateOnboarding: Bool = false
@@ -27,14 +22,12 @@ struct RootCanvas: View {
 
     private enum PresentedSheet: Identifiable {
         case settings
-        case chat
         case quickSetup
 
         var id: Int {
             switch self {
             case .settings: 0
-            case .chat: 1
-            case .quickSetup: 2
+            case .quickSetup: 1
             }
         }
     }
@@ -68,20 +61,7 @@ struct RootCanvas: View {
 
     var body: some View {
         ZStack {
-            CanvasContent(
-                systemColorScheme: self.systemColorScheme,
-                gatewayStatus: self.gatewayStatus,
-                voiceWakeEnabled: self.voiceWakeEnabled,
-                voiceWakeToastText: self.voiceWakeToastText,
-                cameraHUDText: self.appModel.cameraHUDText,
-                cameraHUDKind: self.appModel.cameraHUDKind,
-                openChat: {
-                    self.presentedSheet = .chat
-                },
-                openSettings: {
-                    self.presentedSheet = .settings
-                })
-                .preferredColorScheme(.dark)
+            RootTabs()
 
             if self.appModel.cameraFlashNonce != 0 {
                 CameraFlashOverlay(nonce: self.appModel.cameraFlashNonce)
@@ -96,13 +76,6 @@ struct RootCanvas: View {
                     .environment(self.appModel)
                     .environment(self.appModel.voiceWake)
                     .environment(self.gatewayController)
-            case .chat:
-                ChatSheet(
-                    // Chat RPCs run on the operator session (read/write scopes).
-                    gateway: self.appModel.operatorSession,
-                    sessionKey: self.appModel.chatSessionKey,
-                    agentName: self.appModel.activeAgentName,
-                    userAccent: self.appModel.seamColor)
             case .quickSetup:
                 GatewayQuickSetupSheet()
                     .environment(self.appModel)
@@ -147,37 +120,9 @@ struct RootCanvas: View {
             }
             self.maybeAutoOpenSettings()
         }
-        .onChange(of: self.appModel.openChatRequestID) { _, _ in
-            self.presentedSheet = .chat
-        }
-        .onChange(of: self.voiceWake.lastTriggeredCommand) { _, newValue in
-            guard let newValue else { return }
-            let trimmed = newValue.trimmingCharacters(in: .whitespacesAndNewlines)
-            guard !trimmed.isEmpty else { return }
-
-            self.toastDismissTask?.cancel()
-            withAnimation(.spring(response: 0.25, dampingFraction: 0.85)) {
-                self.voiceWakeToastText = trimmed
-            }
-
-            self.toastDismissTask = Task {
-                try? await Task.sleep(nanoseconds: 2_300_000_000)
-                await MainActor.run {
-                    withAnimation(.easeOut(duration: 0.25)) {
-                        self.voiceWakeToastText = nil
-                    }
-                }
-            }
-        }
         .onDisappear {
             UIApplication.shared.isIdleTimerDisabled = false
-            self.toastDismissTask?.cancel()
-            self.toastDismissTask = nil
         }
-    }
-
-    private var gatewayStatus: StatusPill.GatewayState {
-        GatewayStatusBuilder.build(appModel: self.appModel)
     }
 
     private func updateIdleTimer() {

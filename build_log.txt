@@ -1,0 +1,1126 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace apps/macos/XWorkmate.xcworkspace -scheme XWorkmate build
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-log: https://github.com/apple/swift-log.git @ 1.10.1
+  swift-concurrency-extras: https://github.com/pointfreeco/swift-concurrency-extras @ 1.3.2
+  Commander: https://github.com/steipete/Commander.git @ 0.2.1
+  ElevenLabsKit: https://github.com/steipete/ElevenLabsKit @ 0.1.0
+  swiftui-math: https://github.com/gonzalezreal/swiftui-math @ 0.1.0
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.9.0
+  OpenClawKit: /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/shared/OpenClawKit
+  swift-algorithms: https://github.com/apple/swift-algorithms @ 1.2.1
+  textual: https://github.com/gonzalezreal/textual @ 0.3.1
+  MenuBarExtraAccess: https://github.com/orchetect/MenuBarExtraAccess @ 1.2.2
+  swift-testing: https://github.com/apple/swift-testing @ 0.99.0
+  axPackage: https://github.com/steipete/AXorcist.git @ 0.1.0
+  swift-syntax: https://github.com/swiftlang/swift-syntax.git @ 600.0.1
+  swift-numerics: https://github.com/apple/swift-numerics.git @ 1.1.1
+  Peekaboo: https://github.com/steipete/Peekaboo.git @ main (bace59f)
+  Subprocess: https://github.com/swiftlang/swift-subprocess.git @ 0.1.0
+  swift-system: https://github.com/apple/swift-system @ 1.5.0
+  swabble: /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/Swabble
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00006040-001460843620801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00006040-001460843620801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (46 targets)
+    Target 'XWorkmate' in project 'XWorkmate'
+        ➜ Explicit dependency on target 'OpenClawIPC' in project 'XWorkmate'
+        ➜ Explicit dependency on target 'OpenClawDiscovery' in project 'XWorkmate'
+        ➜ Explicit dependency on target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawChatUI' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'SwabbleKit' in project 'swabble'
+        ➜ Explicit dependency on target 'MenuBarExtraAccess' in project 'MenuBarExtraAccess'
+        ➜ Explicit dependency on target 'Subprocess' in project 'Subprocess'
+        ➜ Explicit dependency on target 'Logging' in project 'swift-log'
+        ➜ Explicit dependency on target 'Sparkle' in project 'Sparkle'
+        ➜ Explicit dependency on target 'PeekabooBridge' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooAutomationKit' in project 'Peekaboo'
+    Target 'PeekabooAutomationKit' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooAutomationKit' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooFoundation' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooProtocols' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Algorithms' in project 'swift-algorithms'
+    Target 'PeekabooBridge' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooBridge' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooFoundation' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooProtocols' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooAutomationKit' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Algorithms' in project 'swift-algorithms'
+    Target 'PeekabooBridge' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooFoundation' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooProtocols' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooAutomationKit' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Algorithms' in project 'swift-algorithms'
+    Target 'PeekabooAutomationKit' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooFoundation' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooProtocols' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Algorithms' in project 'swift-algorithms'
+    Target 'Algorithms' in project 'swift-algorithms'
+        ➜ Explicit dependency on target 'Algorithms' in project 'swift-algorithms'
+        ➜ Explicit dependency on target 'RealModule' in project 'swift-numerics'
+    Target 'Algorithms' in project 'swift-algorithms'
+        ➜ Explicit dependency on target 'RealModule' in project 'swift-numerics'
+    Target 'RealModule' in project 'swift-numerics'
+        ➜ Explicit dependency on target 'RealModule' in project 'swift-numerics'
+        ➜ Explicit dependency on target '_NumericsShims' in project 'swift-numerics'
+    Target 'RealModule' in project 'swift-numerics'
+        ➜ Explicit dependency on target '_NumericsShims' in project 'swift-numerics'
+    Target '_NumericsShims' in project 'swift-numerics' (no dependencies)
+    Target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Logging' in project 'swift-log'
+    Target 'AXorcist' in project 'axPackage'
+        ➜ Explicit dependency on target 'Logging' in project 'swift-log'
+    Target 'PeekabooProtocols' in project 'Peekaboo'
+        ➜ Explicit dependency on target 'PeekabooFoundation' in project 'Peekaboo'
+    Target 'PeekabooFoundation' in project 'Peekaboo' (no dependencies)
+    Target 'Sparkle' in project 'Sparkle' (no dependencies)
+    Target 'Logging' in project 'swift-log'
+        ➜ Explicit dependency on target 'Logging' in project 'swift-log'
+    Target 'Logging' in project 'swift-log' (no dependencies)
+    Target 'Subprocess' in project 'Subprocess'
+        ➜ Explicit dependency on target 'Subprocess' in project 'Subprocess'
+        ➜ Explicit dependency on target '_SubprocessCShims' in project 'Subprocess'
+        ➜ Explicit dependency on target 'SystemPackage' in project 'swift-system'
+    Target 'Subprocess' in project 'Subprocess'
+        ➜ Explicit dependency on target '_SubprocessCShims' in project 'Subprocess'
+        ➜ Explicit dependency on target 'SystemPackage' in project 'swift-system'
+    Target 'SystemPackage' in project 'swift-system'
+        ➜ Explicit dependency on target 'SystemPackage' in project 'swift-system'
+        ➜ Explicit dependency on target 'CSystem' in project 'swift-system'
+    Target 'SystemPackage' in project 'swift-system'
+        ➜ Explicit dependency on target 'CSystem' in project 'swift-system'
+    Target 'CSystem' in project 'swift-system' (no dependencies)
+    Target '_SubprocessCShims' in project 'Subprocess' (no dependencies)
+    Target 'MenuBarExtraAccess' in project 'MenuBarExtraAccess'
+        ➜ Explicit dependency on target 'MenuBarExtraAccess' in project 'MenuBarExtraAccess'
+    Target 'MenuBarExtraAccess' in project 'MenuBarExtraAccess' (no dependencies)
+    Target 'SwabbleKit' in project 'swabble'
+        ➜ Explicit dependency on target 'SwabbleKit' in project 'swabble'
+    Target 'SwabbleKit' in project 'swabble' (no dependencies)
+    Target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+    Target 'OpenClawChatUI' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawChatUI' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'ElevenLabsKit' in project 'ElevenLabsKit'
+        ➜ Explicit dependency on target 'Textual' in project 'textual'
+    Target 'OpenClawChatUI' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'ElevenLabsKit' in project 'ElevenLabsKit'
+        ➜ Explicit dependency on target 'Textual' in project 'textual'
+    Target 'Textual' in project 'textual'
+        ➜ Explicit dependency on target 'Textual' in project 'textual'
+        ➜ Explicit dependency on target 'textual_Textual' in project 'textual'
+        ➜ Explicit dependency on target 'ConcurrencyExtras' in project 'swift-concurrency-extras'
+        ➜ Explicit dependency on target 'SwiftUIMath' in project 'swiftui-math'
+    Target 'Textual' in project 'textual'
+        ➜ Explicit dependency on target 'textual_Textual' in project 'textual'
+        ➜ Explicit dependency on target 'ConcurrencyExtras' in project 'swift-concurrency-extras'
+        ➜ Explicit dependency on target 'SwiftUIMath' in project 'swiftui-math'
+    Target 'SwiftUIMath' in project 'swiftui-math'
+        ➜ Explicit dependency on target 'SwiftUIMath' in project 'swiftui-math'
+        ➜ Explicit dependency on target 'swiftui-math_SwiftUIMath' in project 'swiftui-math'
+    Target 'SwiftUIMath' in project 'swiftui-math'
+        ➜ Explicit dependency on target 'swiftui-math_SwiftUIMath' in project 'swiftui-math'
+    Target 'swiftui-math_SwiftUIMath' in project 'swiftui-math' (no dependencies)
+    Target 'ConcurrencyExtras' in project 'swift-concurrency-extras'
+        ➜ Explicit dependency on target 'ConcurrencyExtras' in project 'swift-concurrency-extras'
+    Target 'ConcurrencyExtras' in project 'swift-concurrency-extras' (no dependencies)
+    Target 'textual_Textual' in project 'textual' (no dependencies)
+    Target 'OpenClawDiscovery' in project 'XWorkmate'
+        ➜ Explicit dependency on target 'OpenClawKit' in project 'OpenClawKit'
+    Target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawKit_OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'ElevenLabsKit' in project 'ElevenLabsKit'
+    Target 'OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawKit_OpenClawKit' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'OpenClawProtocol' in project 'OpenClawKit'
+        ➜ Explicit dependency on target 'ElevenLabsKit' in project 'ElevenLabsKit'
+    Target 'ElevenLabsKit' in project 'ElevenLabsKit'
+        ➜ Explicit dependency on target 'ElevenLabsKit' in project 'ElevenLabsKit'
+    Target 'ElevenLabsKit' in project 'ElevenLabsKit' (no dependencies)
+    Target 'OpenClawProtocol' in project 'OpenClawKit' (no dependencies)
+    Target 'OpenClawKit_OpenClawKit' in project 'OpenClawKit' (no dependencies)
+    Target 'OpenClawIPC' in project 'XWorkmate' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ReadFileContents /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/docc/features.json
+
+Build description signature: 282f4ff5df119485d0063a341497b505
+Build description path: /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XCBuildData/282f4ff5df119485d0063a341497b505.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -o /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/swiftui-math_SwiftUIMath.bundle/Contents/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/swiftui-math.build/Debug/swiftui-math_SwiftUIMath.build/empty-swiftui-math_SwiftUIMath.plist (in target 'swiftui-math_SwiftUIMath' from project 'swiftui-math')
+    cd /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swiftui-math
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/swiftui-math.build/Debug/swiftui-math_SwiftUIMath.build/empty-swiftui-math_SwiftUIMath.plist -producttype com.apple.product-type.bundle -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/swiftui-math_SwiftUIMath.bundle/Contents/Info.plist
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/textual_Textual.bundle/Contents/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/textual.build/Debug/textual_Textual.build/empty-textual_Textual.plist (in target 'textual_Textual' from project 'textual')
+    cd /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/textual
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/textual.build/Debug/textual_Textual.build/empty-textual_Textual.plist -producttype com.apple.product-type.bundle -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/textual_Textual.bundle/Contents/Info.plist
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawKit_OpenClawKit.bundle/Contents/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawKit_OpenClawKit.build/empty-OpenClawKit_OpenClawKit.plist (in target 'OpenClawKit_OpenClawKit' from project 'OpenClawKit')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/shared/OpenClawKit
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawKit_OpenClawKit.build/empty-OpenClawKit_OpenClawKit.plist -producttype com.apple.product-type.bundle -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawKit_OpenClawKit.bundle/Contents/Info.plist
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawIPC.framework/Versions/A/Resources/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/OpenClawIPC.build/empty-OpenClawIPC.plist (in target 'OpenClawIPC' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/OpenClawIPC.build/empty-OpenClawIPC.plist -producttype com.apple.product-type.framework -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawIPC.framework/Versions/A/Resources/Info.plist
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks/ElevenLabsKit_27AB0430304E1D16_PackageProduct.framework/Versions/A/Resources/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/ElevenLabsKit.build/Debug/ElevenLabsKit\ product.build/empty-ElevenLabsKit_27AB0430304E1D16_PackageProduct.plist (in target 'ElevenLabsKit' from project 'ElevenLabsKit')
+    cd /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/ElevenLabsKit
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/ElevenLabsKit.build/Debug/ElevenLabsKit\ product.build/empty-ElevenLabsKit_27AB0430304E1D16_PackageProduct.plist -producttype com.apple.product-type.framework -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks/ElevenLabsKit_27AB0430304E1D16_PackageProduct.framework/Versions/A/Resources/Info.plist
+
+SwiftDriver PeekabooBridge normal arm64 com.apple.xcode.tools.swift.compiler (in target 'PeekabooBridge' from project 'Peekaboo')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name PeekabooBridge -Onone -enforce-exclusivity\=checked @/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -enable-experimental-feature StrictConcurrency -enable-upcoming-feature ExistentialAny -enable-upcoming-feature NonisolatedNonsendingByDefault -parse-as-library -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j14 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name peekaboo -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge_const_extract_protocols.json -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-numerics/Sources/_NumericsShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge-Swift.h -working-directory /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver OpenClawChatUI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'OpenClawChatUI' from project 'OpenClawKit')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name OpenClawChatUI -Onone -enforce-exclusivity\=checked @/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -enable-upcoming-feature StrictConcurrency -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -target arm64-apple-macos15.0 -g -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j14 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name openclawkit -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI_const_extract_protocols.json -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI-Swift.h -working-directory /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -experimental-emit-module-separately -disable-cmo
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks/OpenClawKit_1E654B89C25CA34C_PackageProduct.framework/Versions/A/Resources/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawKit\ product.build/empty-OpenClawKit_1E654B89C25CA34C_PackageProduct.plist (in target 'OpenClawKit' from project 'OpenClawKit')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/shared/OpenClawKit
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawKit\ product.build/empty-OpenClawKit_1E654B89C25CA34C_PackageProduct.plist -producttype com.apple.product-type.framework -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks/OpenClawKit_1E654B89C25CA34C_PackageProduct.framework/Versions/A/Resources/Info.plist
+
+ProcessInfoPlistFile /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawDiscovery.framework/Versions/A/Resources/Info.plist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/OpenClawDiscovery.build/empty-OpenClawDiscovery.plist (in target 'OpenClawDiscovery' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-infoPlistUtility /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/OpenClawDiscovery.build/empty-OpenClawDiscovery.plist -producttype com.apple.product-type.framework -expandbuildsettings -platform macosx -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawDiscovery.framework/Versions/A/Resources/Info.plist
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ PeekabooBridge (in target 'PeekabooBridge' from project 'Peekaboo')
+
+EmitSwiftModule normal arm64 (in target 'PeekabooBridge' from project 'Peekaboo')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ PeekabooBridgeServer.swift /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/Peekaboo/Core/PeekabooCore/Sources/PeekabooBridge/PeekabooBridgeServer.swift (in target 'PeekabooBridge' from project 'Peekaboo')
+SwiftCompile normal arm64 /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/Peekaboo/Core/PeekabooCore/Sources/PeekabooBridge/PeekabooBridgeServer.swift (in target 'PeekabooBridge' from project 'Peekaboo')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftDriver\ Compilation\ Requirements OpenClawChatUI normal arm64 com.apple.xcode.tools.swift.compiler (in target 'OpenClawChatUI' from project 'OpenClawKit')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name OpenClawChatUI -Onone -enforce-exclusivity\=checked @/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -enable-upcoming-feature StrictConcurrency -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -target arm64-apple-macos15.0 -g -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j14 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name openclawkit -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI_const_extract_protocols.json -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/OpenClawKit.build/Debug/OpenClawChatUI.build/Objects-normal/arm64/OpenClawChatUI-Swift.h -working-directory /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -experimental-emit-module-separately -disable-cmo
+
+RegisterExecutionPolicyException /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawChatUI.o (in target 'OpenClawChatUI' from project 'OpenClawKit')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/shared/OpenClawKit
+    builtin-RegisterExecutionPolicyException /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/OpenClawChatUI.o
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for PeekabooBridge (in target 'PeekabooBridge' from project 'Peekaboo')
+
+SwiftDriver\ Compilation\ Requirements PeekabooBridge normal arm64 com.apple.xcode.tools.swift.compiler (in target 'PeekabooBridge' from project 'Peekaboo')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name PeekabooBridge -Onone -enforce-exclusivity\=checked @/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -enable-experimental-feature StrictConcurrency -enable-upcoming-feature ExistentialAny -enable-upcoming-feature NonisolatedNonsendingByDefault -parse-as-library -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j14 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name peekaboo -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge_const_extract_protocols.json -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-numerics/Sources/_NumericsShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge-Swift.h -working-directory /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PeekabooBridge.swiftmodule/arm64-apple-macos.abi.json /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.abi.json (in target 'PeekabooBridge' from project 'Peekaboo')
+    cd /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/Peekaboo
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/Peekaboo.build/Debug/PeekabooBridge.build/Objects-normal/arm64/PeekabooBridge.abi.json /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PeekabooBridge.swiftmodule/arm64-apple-macos.abi.json
+
+ProcessProductPackaging "" /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.get-task-allow" = 1;
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent
+
+ProcessProductPackagingDER /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent.der (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    /usr/bin/derq query -f xml -i /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate.app.xcent.der --raw
+
+SwiftDriver XWorkmate normal arm64 com.apple.xcode.tools.swift.compiler (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name XWorkmate -Onone -enforce-exclusivity\=checked @/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -target arm64-apple-macos15.0 -g -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -c -j14 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate_const_extract_protocols.json -Xcc -iquote -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-generated-files.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-own-target-headers.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate-6c6731aaad58f1b3b59f08a5c5e5fbfa-VFS/all-product-headers.yaml -Xcc -iquote -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-project-headers.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-system/Sources/CSystem/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-subprocess/Sources/_SubprocessCShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-numerics/Sources/_NumericsShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate-Swift.h -working-directory /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ ChannelsStore+Config.swift,\ ChannelsStore+Lifecycle.swift,\ ChannelsStore.swift,\ CoalescingFSEventsWatcher.swift,\ ColorHexSupport.swift,\ CommandResolver.swift,\ ConfigFileWatcher.swift,\ ConfigSchemaSupport.swift,\ ConfigSettings.swift,\ ConfigStore.swift,\ ConnectionModeCoordinator.swift,\ ConnectionModeResolver.swift,\ Constants.swift,\ ContextMenuCardView.swift,\ ContextUsageBar.swift,\ ControlChannel.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore+Config.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore+Lifecycle.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CoalescingFSEventsWatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ColorHexSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CommandResolver.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigFileWatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigSchemaSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConnectionModeCoordinator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConnectionModeResolver.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Constants.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ContextMenuCardView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ContextUsageBar.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ControlChannel.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore+Config.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore+Lifecycle.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CoalescingFSEventsWatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ColorHexSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CommandResolver.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigFileWatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigSchemaSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConfigStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConnectionModeCoordinator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ConnectionModeResolver.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Constants.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ContextMenuCardView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ContextUsageBar.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ControlChannel.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ DebugSettings.swift,\ DeepLinks.swift,\ DeviceModelCatalog.swift,\ DevicePairingApprovalPrompter.swift,\ DiagnosticsFileLog.swift,\ DockIconManager.swift,\ DurationFormattingSupport.swift,\ ExecAllowlistMatcher.swift,\ ExecApprovalEvaluation.swift,\ ExecApprovals.swift,\ ExecApprovalsGatewayPrompter.swift,\ ExecApprovalsSocket.swift,\ ExecCommandResolution.swift,\ ExecEnvInvocationUnwrapper.swift,\ ExecEnvOptions.swift,\ ExecHostRequestEvaluator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeepLinks.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DevicePairingApprovalPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DiagnosticsFileLog.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DockIconManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DurationFormattingSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecAllowlistMatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovals.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsGatewayPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecCommandResolution.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvInvocationUnwrapper.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvOptions.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecHostRequestEvaluator.swift (in target 'XWorkmate' from project 'XWorkmate')
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c -filelist /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/sources-1 -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugSettings.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeepLinks.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DevicePairingApprovalPrompter.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DiagnosticsFileLog.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DockIconManager.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DurationFormattingSupport.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecAllowlistMatcher.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovals.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsGatewayPrompter.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecCommandResolution.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvInvocationUnwrapper.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvOptions.swift -primary-file /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecHostRequestEvaluator.swift -supplementary-output-file-map /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/supplementaryOutputs-5 -target arm64-apple-macos15.0 -module-can-import-version AppKit 2685.30.107 2685.30.107 -module-can-import-version Darwin 347.40.2 0 -module-can-import Sparkle -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libPreviewsMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#PreviewsMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftUIMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftUIMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk -I /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/PackageFrameworks -F /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=5 -module-cache-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -swift-version 6 -enforce-exclusivity\=checked -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/XWorkmate_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/shenlan/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -enable-anonymous-context-mangled-names -file-compilation-dir /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.2-25C58-00fa09913b459cbbc988d1f6730289ae.sdkstatcache -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-generated-files.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-own-target-headers.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate-6c6731aaad58f1b3b59f08a5c5e5fbfa-VFS/all-product-headers.yaml -Xcc -iquote -Xcc /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/XWorkmate-project-headers.hmap -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-system/Sources/CSystem/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-subprocess/Sources/_SubprocessCShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/SourcePackages/checkouts/swift-numerics/Sources/_NumericsShims/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Products/Debug/include -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources-normal/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources/arm64 -Xcc -I/Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/DerivedSources -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name XWorkmate -frontend-parseable-output -disable-clang-spi -target-sdk-version 26.2 -target-sdk-name macosx26.2 -clang-target arm64-apple-macos26.2 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DebugSettings.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DeepLinks.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DeviceModelCatalog.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DevicePairingApprovalPrompter.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DiagnosticsFileLog.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DockIconManager.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DurationFormattingSupport.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecAllowlistMatcher.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalEvaluation.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovals.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalsGatewayPrompter.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalsSocket.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecCommandResolution.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecEnvInvocationUnwrapper.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecEnvOptions.o -o /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Build/Intermediates.noindex/XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecHostRequestEvaluator.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DebugSettings.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DeepLinks.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DeviceModelCatalog.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DevicePairingApprovalPrompter.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DiagnosticsFileLog.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DockIconManager.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/DurationFormattingSupport.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecAllowlistMatcher.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalEvaluation.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovals.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalsGatewayPrompter.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecApprovalsSocket.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecCommandResolution.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecEnvInvocationUnwrapper.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecEnvOptions.o -index-unit-output-path /XWorkmate.build/Debug/XWorkmate.build/Objects-normal/arm64/ExecHostRequestEvaluator.o -index-store-path /Users/shenlan/Library/Developer/Xcode/DerivedData/XWorkmate-ceytrbeaxmffmgejgonfgyxnwybf/Index.noindex/DataStore -index-system-modules
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeepLinks.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+/Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift:131:66: error: 'module' is inaccessible due to 'internal' protection level
+        if let bundle = self.bundleIfContainsDeviceModels(Bundle.module) {
+                                                                 ^~~~~~
+Textual.Bundle.module:2:20: note: 'module' declared here
+internal class let module: Bundle}
+                   ^
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DevicePairingApprovalPrompter.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DiagnosticsFileLog.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DockIconManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DurationFormattingSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecAllowlistMatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovals.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsGatewayPrompter.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecCommandResolution.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvInvocationUnwrapper.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvOptions.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecHostRequestEvaluator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ CostUsageMenuView.swift,\ CritterIconRenderer.swift,\ CritterStatusLabel+Behavior.swift,\ CritterStatusLabel.swift,\ CronJobEditor+Helpers.swift,\ CronJobEditor+Testing.swift,\ CronJobEditor.swift,\ CronJobsStore.swift,\ CronModels.swift,\ CronSettings+Actions.swift,\ CronSettings+Helpers.swift,\ CronSettings+Layout.swift,\ CronSettings+Rows.swift,\ CronSettings+Testing.swift,\ CronSettings.swift,\ DebugActions.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CostUsageMenuView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterIconRenderer.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterStatusLabel+Behavior.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterStatusLabel.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor+Helpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor+Testing.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobsStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronModels.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Actions.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Helpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Layout.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Rows.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Testing.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugActions.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CostUsageMenuView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterIconRenderer.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterStatusLabel+Behavior.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CritterStatusLabel.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor+Helpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor+Testing.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobEditor.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronJobsStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronModels.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Actions.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Helpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Layout.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Rows.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings+Testing.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CronSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugActions.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ AboutSettings.swift,\ AccountModels.swift,\ AccountSettings.swift,\ AgeFormatting.swift,\ AgentEventStore.swift,\ AgentEventsWindow.swift,\ AgentWorkspace.swift,\ AgentWorkspaceConfig.swift,\ AnyCodable+Helpers.swift,\ AppState.swift,\ AudioInputDeviceObserver.swift,\ CLIInstallPrompter.swift,\ CLIInstaller.swift,\ CameraCaptureService.swift,\ CanvasA2UIActionMessageHandler.swift,\ CanvasChromeContainerView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AboutSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AccountModels.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AccountSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgeFormatting.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentEventStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentEventsWindow.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentWorkspace.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentWorkspaceConfig.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AnyCodable+Helpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AppState.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AudioInputDeviceObserver.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CLIInstallPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CLIInstaller.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CameraCaptureService.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasA2UIActionMessageHandler.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasChromeContainerView.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AboutSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AccountModels.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AccountSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgeFormatting.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentEventStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentEventsWindow.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentWorkspace.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AgentWorkspaceConfig.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AnyCodable+Helpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AppState.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/AudioInputDeviceObserver.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CLIInstallPrompter.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CLIInstaller.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CameraCaptureService.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasA2UIActionMessageHandler.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasChromeContainerView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ CanvasFileWatcher.swift,\ CanvasManager.swift,\ CanvasScheme.swift,\ CanvasSchemeHandler.swift,\ CanvasWindow.swift,\ CanvasWindowController+Helpers.swift,\ CanvasWindowController+Navigation.swift,\ CanvasWindowController+Testing.swift,\ CanvasWindowController+Window.swift,\ CanvasWindowController.swift,\ ChannelConfigForm.swift,\ ChannelsSettings+ChannelSections.swift,\ ChannelsSettings+ChannelState.swift,\ ChannelsSettings+Helpers.swift,\ ChannelsSettings+View.swift,\ ChannelsSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasFileWatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasScheme.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasSchemeHandler.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindow.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Helpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Navigation.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Testing.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Window.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelConfigForm.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+ChannelSections.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+ChannelState.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+Helpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+View.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasFileWatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasScheme.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasSchemeHandler.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindow.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Helpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Navigation.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Testing.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController+Window.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/CanvasWindowController.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelConfigForm.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+ChannelSections.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+ChannelState.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+Helpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings+View.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ChannelsSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ ExecShellWrapperParser.swift,\ ExecSystemRunCommandValidator.swift,\ FileHandle+SafeRead.swift,\ GatewayAutostartPolicy.swift,\ GatewayConnection.swift,\ GatewayConnectivityCoordinator.swift,\ GatewayDiscoveryHelpers.swift,\ GatewayDiscoveryMenu.swift,\ GatewayDiscoveryPreferences.swift,\ GatewayDiscoverySelectionSupport.swift,\ GatewayEndpointStore.swift,\ GatewayEnvironment.swift,\ GatewayLaunchAgentManager.swift,\ GatewayProcessManager.swift,\ GatewayPushSubscription.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecShellWrapperParser.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecSystemRunCommandValidator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/FileHandle+SafeRead.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayAutostartPolicy.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayConnection.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayConnectivityCoordinator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryHelpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryMenu.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryPreferences.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoverySelectionSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayEndpointStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayEnvironment.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayLaunchAgentManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayProcessManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayPushSubscription.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecShellWrapperParser.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecSystemRunCommandValidator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/FileHandle+SafeRead.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayAutostartPolicy.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayConnection.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayConnectivityCoordinator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryHelpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryMenu.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoveryPreferences.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayDiscoverySelectionSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayEndpointStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayEnvironment.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayLaunchAgentManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayProcessManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayPushSubscription.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ MicLevelMonitor.swift,\ MicRefreshSupport.swift,\ ModelCatalogLoader.swift,\ NSAttributedString+VoiceWake.swift,\ NodePairingApprovalPrompter.swift,\ NodeServiceManager.swift,\ NodesMenu.swift,\ NodesStore.swift,\ NotificationManager.swift,\ NotifyOverlay.swift,\ Onboarding.swift,\ OnboardingView+Actions.swift,\ OnboardingView+Chat.swift,\ OnboardingView+Layout.swift,\ OnboardingView+Monitoring.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MicLevelMonitor.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MicRefreshSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ModelCatalogLoader.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NSAttributedString+VoiceWake.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodePairingApprovalPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeServiceManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodesMenu.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodesStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NotificationManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NotifyOverlay.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Onboarding.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Actions.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Chat.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Layout.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Monitoring.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MicLevelMonitor.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MicRefreshSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ModelCatalogLoader.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NSAttributedString+VoiceWake.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodePairingApprovalPrompter.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeServiceManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodesMenu.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodesStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NotificationManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NotifyOverlay.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Onboarding.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Actions.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Chat.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Layout.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Monitoring.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ MacNodeLocationService.swift,\ MacNodeModeCoordinator.swift,\ MacNodeRuntime.swift,\ MacNodeRuntimeMainActorServices.swift,\ MacNodeScreenCommands.swift,\ MenuBar.swift,\ MenuContentView.swift,\ MenuContextCardInjector.swift,\ MenuHeaderCard.swift,\ MenuHighlightedHostView.swift,\ MenuHostedItem.swift,\ MenuItemHighlightColors.swift,\ MenuSessionsHeaderView.swift,\ MenuSessionsInjector.swift,\ MenuUsageHeaderView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeLocationService.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeModeCoordinator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeRuntime.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeRuntimeMainActorServices.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeScreenCommands.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuBar.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuContentView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuContextCardInjector.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHeaderCard.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHighlightedHostView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHostedItem.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuItemHighlightColors.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuSessionsHeaderView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuSessionsInjector.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuUsageHeaderView.swift (in target 'XWorkmate' from project 'XWorkmate')
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeLocationService.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeModeCoordinator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeRuntime.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeRuntimeMainActorServices.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/NodeMode/MacNodeScreenCommands.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuBar.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuContentView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuContextCardInjector.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHeaderCard.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHighlightedHostView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuHostedItem.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuItemHighlightColors.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuSessionsHeaderView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuSessionsInjector.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/MenuUsageHeaderView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ TrackingAreaSupport.swift,\ UsageCostData.swift,\ UsageData.swift,\ UsageMenuLabelView.swift,\ UserDefaultsMigration.swift,\ ViewMetrics.swift,\ VisualEffectView.swift,\ VoiceOverlayTextFormatting.swift,\ VoicePushToTalk.swift,\ VoiceSessionCoordinator.swift,\ VoiceWakeChime.swift,\ VoiceWakeForwarder.swift,\ VoiceWakeGlobalSettingsSync.swift,\ VoiceWakeHelpers.swift,\ VoiceWakeOverlay.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TrackingAreaSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageCostData.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageData.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageMenuLabelView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UserDefaultsMigration.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ViewMetrics.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VisualEffectView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceOverlayTextFormatting.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoicePushToTalk.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceSessionCoordinator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeChime.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeForwarder.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeGlobalSettingsSync.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeHelpers.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeOverlay.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TrackingAreaSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageCostData.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageData.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UsageMenuLabelView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/UserDefaultsMigration.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ViewMetrics.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VisualEffectView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceOverlayTextFormatting.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoicePushToTalk.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceSessionCoordinator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeChime.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeForwarder.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeGlobalSettingsSync.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeHelpers.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/VoiceWakeOverlay.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ StatusPill.swift,\ String+NonEmpty.swift,\ SystemPresenceInfo.swift,\ SystemRunSettingsView.swift,\ SystemSettingsURLSupport.swift,\ TailscaleIntegrationSection.swift,\ TailscaleService.swift,\ TalkAudioPlayer.swift,\ TalkModeController.swift,\ TalkModeRuntime.swift,\ TalkModeTypes.swift,\ TalkOverlay.swift,\ TalkOverlayView.swift,\ TerminationSignalWatcher.swift,\ TextSummarySupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/StatusPill.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/String+NonEmpty.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemPresenceInfo.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemRunSettingsView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemSettingsURLSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TailscaleIntegrationSection.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TailscaleService.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkAudioPlayer.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeController.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeRuntime.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeTypes.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkOverlay.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkOverlayView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TerminationSignalWatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TextSummarySupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/StatusPill.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/String+NonEmpty.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemPresenceInfo.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemRunSettingsView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SystemSettingsURLSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TailscaleIntegrationSection.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TailscaleService.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkAudioPlayer.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeController.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeRuntime.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkModeTypes.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkOverlay.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TalkOverlayView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TerminationSignalWatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/TextSummarySupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ OnboardingView+Pages.swift,\ OnboardingView+Testing.swift,\ OnboardingView+Wizard.swift,\ OnboardingView+Workspace.swift,\ OnboardingWidgets.swift,\ OnboardingWizard.swift,\ OpenClawConfigFile.swift,\ OpenClawLogging.swift,\ OpenClawPaths.swift,\ OverlayPanelFactory.swift,\ PairingAlertSupport.swift,\ PeekabooBridgeHostCoordinator.swift,\ PermissionManager.swift,\ PermissionMonitoringSupport.swift,\ SessionMenuLabelView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Pages.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Testing.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Wizard.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Workspace.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingWidgets.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingWizard.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OpenClawConfigFile.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Logging/OpenClawLogging.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OpenClawPaths.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OverlayPanelFactory.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PairingAlertSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PeekabooBridgeHostCoordinator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PermissionManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PermissionMonitoringSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionMenuLabelView.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Pages.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Testing.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Wizard.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingView+Workspace.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingWidgets.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OnboardingWizard.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OpenClawConfigFile.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Logging/OpenClawLogging.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OpenClawPaths.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/OverlayPanelFactory.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PairingAlertSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PeekabooBridgeHostCoordinator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PermissionManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/PermissionMonitoringSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionMenuLabelView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ XWorkmate (in target 'XWorkmate' from project 'XWorkmate')
+
+EmitSwiftModule normal arm64 (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ SessionMenuPreviewView.swift,\ SessionsSettings.swift,\ SettingsComponents.swift,\ SettingsRefreshButton.swift,\ SettingsRootView.swift,\ SettingsSidebarCard.swift,\ SettingsSidebarScroll.swift,\ SettingsWindowOpener.swift,\ ShellExecutor.swift,\ SimpleFileWatcher.swift,\ SimpleFileWatcherOwner.swift,\ SimpleTaskSupport.swift,\ SkillsModels.swift,\ SkillsSettings.swift,\ SoundEffects.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionMenuPreviewView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionsSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsComponents.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsRefreshButton.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsRootView.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsSidebarCard.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsSidebarScroll.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsWindowOpener.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ShellExecutor.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleFileWatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleFileWatcherOwner.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleTaskSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SkillsModels.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SkillsSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SoundEffects.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionMenuPreviewView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SessionsSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsComponents.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsRefreshButton.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsRootView.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsSidebarCard.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsSidebarScroll.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SettingsWindowOpener.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ShellExecutor.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleFileWatcher.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleFileWatcherOwner.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SimpleTaskSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SkillsModels.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SkillsSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/SoundEffects.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 Compiling\ GatewayRemoteConfig.swift,\ GeneralSettings.swift,\ HealthStore.swift,\ HeartbeatStore.swift,\ HostEnvSanitizer.swift,\ HostEnvSecurityPolicy.generated.swift,\ HoverHUD.swift,\ IconState.swift,\ InstancesSettings.swift,\ InstancesStore.swift,\ JSONObjectExtractionSupport.swift,\ LaunchAgentManager.swift,\ Launchctl.swift,\ LaunchdManager.swift,\ LogLocator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayRemoteConfig.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GeneralSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HealthStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HeartbeatStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HostEnvSanitizer.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HostEnvSecurityPolicy.generated.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HoverHUD.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/IconState.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/InstancesSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/InstancesStore.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/JSONObjectExtractionSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LaunchAgentManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Launchctl.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LaunchdManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LogLocator.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GatewayRemoteConfig.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/GeneralSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HealthStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HeartbeatStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HostEnvSanitizer.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HostEnvSecurityPolicy.generated.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/HoverHUD.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/IconState.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/InstancesSettings.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/InstancesStore.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/JSONObjectExtractionSupport.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LaunchAgentManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/Launchctl.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LaunchdManager.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/LogLocator.swift (in target 'XWorkmate' from project 'XWorkmate')
+    cd /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling TrackingAreaSupport.swift, UsageCostData.swift, UsageData.swift, UsageMenuLabelView.swift, UserDefaultsMigration.swift, ViewMetrics.swift, VisualEffectView.swift, VoiceOverlayTextFormatting.swift, VoicePushToTalk.swift, VoiceSessionCoordinator.swift, VoiceWakeChime.swift, VoiceWakeForwarder.swift, VoiceWakeGlobalSettingsSync.swift, VoiceWakeHelpers.swift, VoiceWakeOverlay.swift (in target 'XWorkmate' from project 'XWorkmate')
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftCompile normal arm64 Compiling\ DebugSettings.swift,\ DeepLinks.swift,\ DeviceModelCatalog.swift,\ DevicePairingApprovalPrompter.swift,\ DiagnosticsFileLog.swift,\ DockIconManager.swift,\ DurationFormattingSupport.swift,\ ExecAllowlistMatcher.swift,\ ExecApprovalEvaluation.swift,\ ExecApprovals.swift,\ ExecApprovalsGatewayPrompter.swift,\ ExecApprovalsSocket.swift,\ ExecCommandResolution.swift,\ ExecEnvInvocationUnwrapper.swift,\ ExecEnvOptions.swift,\ ExecHostRequestEvaluator.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DebugSettings.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeepLinks.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DevicePairingApprovalPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DiagnosticsFileLog.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DockIconManager.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DurationFormattingSupport.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecAllowlistMatcher.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovals.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsGatewayPrompter.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecCommandResolution.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvInvocationUnwrapper.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecEnvOptions.swift /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/ExecHostRequestEvaluator.swift (in target 'XWorkmate' from project 'XWorkmate')
+	SwiftCompile normal arm64 /Users/shenlan/workspaces/cloud-neutral-toolkit/openclaw.svc.plus/apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift (in target 'XWorkmate' from project 'XWorkmate')
+	Building workspace XWorkmate with scheme XWorkmate
+(3 failures)

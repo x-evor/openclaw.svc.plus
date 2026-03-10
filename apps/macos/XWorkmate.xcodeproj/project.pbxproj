@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		07CF7C308C8021BC629FAC9C /* MacNodeLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCD9E3BB6ED9CF36F9D57E /* MacNodeLocationService.swift */; };
 		0898275C9C32F19D1BC26E8B /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA348D57DD7E967A4B3B87F /* PermissionManager.swift */; };
 		08F12E64B059E327495D2BCB /* UsageCostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED8153FE68456FCAA79F441 /* UsageCostData.swift */; };
+		0A3BEE74F88C76F0A1111328 /* TailscaleServeGatewayDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667D969DBF9AF3478078D7B /* TailscaleServeGatewayDiscovery.swift */; };
 		0A938EB40205FC6F47FEADD6 /* NodesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E4DFC0F453E66C8A59CAF /* NodesMenu.swift */; };
 		0A9F04CF5A698758004CB2C9 /* SettingsSidebarScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5670925EA72DFB5710D84D3 /* SettingsSidebarScroll.swift */; };
 		0AA16F28BAD35E4D71B68306 /* ScreenRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B03F1C8C8790A1F126FB0B /* ScreenRecordService.swift */; };
@@ -63,10 +64,12 @@
 		3AB313372CEBFF8E0EA70E6D /* MenuHighlightedHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BAA75011A6C9B49DA0FB1 /* MenuHighlightedHostView.swift */; };
 		3AC9AFBA840EA79F0329BE81 /* Process+PipeRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21EEFDD9EB7701BBB2A7B62 /* Process+PipeRead.swift */; };
 		3AD272B362FD6961FAB3361B /* GatewayAutostartPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707BEA5E2A4C36D96BB5D4F /* GatewayAutostartPolicy.swift */; };
+		3E32686CBCF3172F6A755376 /* TailscaleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D83C8ADEAC019A1ED14C5 /* TailscaleNetwork.swift */; };
 		3F2259AE1FD68EC026B1D812 /* OpenClawKit in Frameworks */ = {isa = PBXBuildFile; productRef = BAE9982E5E13C5546D6B4E3A /* OpenClawKit */; };
 		3FC08C191AAF6E6318531FC9 /* ProcessInfo+OpenClaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50A49AE13720303978D6DF7 /* ProcessInfo+OpenClaw.swift */; };
 		40F0B3F5394D0D4AEB6C065C /* OnboardingView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A1A01EA06B26E1FE2A2EC /* OnboardingView+Layout.swift */; };
 		433C201FB5FB8DD6610A3738 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076F938108947E455B3A313 /* SessionData.swift */; };
+		43635460A36A07B0813C473C /* GatewayDiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB23B0090A2A31FDB9669B /* GatewayDiscoveryModel.swift */; };
 		43822DFF690A571B13494F5A /* DeviceModelCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921968D8B71467575EC0429 /* DeviceModelCatalog.swift */; };
 		43A5AADB1FFAC7F32A9768CF /* ContextMenuCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDEF335277C463A2F272D3 /* ContextMenuCardView.swift */; };
 		452ABE59199B926C0CB8A16A /* NOTICE.md in Resources */ = {isa = PBXBuildFile; fileRef = 6FA70634E0F69DE9C4383E38 /* NOTICE.md */; };
@@ -86,6 +89,7 @@
 		52CA8FDC43184F4DA0086143 /* VoiceWakeOverlayTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946A20FAD0363E9E606D968 /* VoiceWakeOverlayTextViews.swift */; };
 		5347EE671BB4FB35620D02E9 /* VoiceWakeGlobalSettingsSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ED5BA74D67528B9FD39CAA /* VoiceWakeGlobalSettingsSync.swift */; };
 		53AB7CDDA33B318028C6D8F6 /* SwabbleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0DB800427C85555181FC5902 /* SwabbleKit */; };
+		57E053C94CBE2FCFBCAB8850 /* OpenClawKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5325F6D88B0A1E1A97992778 /* OpenClawKit */; };
 		591742FA2E75A9595AE3B22E /* PermissionsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8F83C6F6BAE09F7FAF06D /* PermissionsSettings.swift */; };
 		5B654455D258E73B02D410B3 /* VoiceWakeTestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D25DD0B79F704F534AD9 /* VoiceWakeTestCard.swift */; };
 		5C6FC38434AE8804686E3B2E /* CritterStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB11DDA290ADA7892C7FE25 /* CritterStatusLabel.swift */; };
@@ -93,6 +97,7 @@
 		5E025C837AC96E7271346A39 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315509873B715A79C303F56D /* DebugSettings.swift */; };
 		5FC0C62E97E151604C50FC74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58A1DC2A26F6FD04BE29091 /* Constants.swift */; };
 		614D1E48CA91B4E3C654DE24 /* TailscaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EDD4C9B23C283D903F76F /* TailscaleService.swift */; };
+		6408008999EC1BBAB13EDBDB /* OpenClawIPC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53551ACBEC548898B82BFF7C /* OpenClawIPC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6510776DC99FFC64470EEF34 /* HoverHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026BB04EB7EE785914F675FB /* HoverHUD.swift */; };
 		653D7D019D2370F848C97575 /* AccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B997D81555B3A29AA7F27A1 /* AccountModels.swift */; };
 		677A9C8897963404406ABDBC /* ExecApprovals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7476EE683A866EC33E0BBEE /* ExecApprovals.swift */; };
@@ -106,7 +111,6 @@
 		6D8A31174EA00D173E5AECAB /* ChannelsSettings+ChannelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E33EC121390CA135AA34F5 /* ChannelsSettings+ChannelState.swift */; };
 		6DBE8C6AFC3AFF599301AF6F /* GatewayLaunchAgentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4118D670376E1DBD761D26AF /* GatewayLaunchAgentManager.swift */; };
 		6E35953A58B7F383D5707ABA /* PairingAlertSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0D45D62970D1AF1DB450A /* PairingAlertSupport.swift */; };
-		6E5B8D534B14187DF4CFC5E7 /* GatewayDiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB23B0090A2A31FDB9669B /* GatewayDiscoveryModel.swift */; };
 		6E696DBF8EC0798FCDD60E5E /* PeekabooAutomationKit in Frameworks */ = {isa = PBXBuildFile; productRef = E86D353C5FAC650723A644FC /* PeekabooAutomationKit */; };
 		6E8D16DEEB34C99D0EF14309 /* VoiceWakeOverlayController+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836C4FD658A2404434494B8 /* VoiceWakeOverlayController+Testing.swift */; };
 		6F3EC540146B84A83C7D4E89 /* SettingsWindowOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E29343DF32D0922028388 /* SettingsWindowOpener.swift */; };
@@ -131,6 +135,7 @@
 		80197B82E343971E344C3BFF /* CameraCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DFE525B70288212270B09 /* CameraCaptureService.swift */; };
 		80912B29662C91E35CF0F3B5 /* OnboardingView+Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249914708FEE58F055629BC6 /* OnboardingView+Pages.swift */; };
 		809199AAC939D501E057BFA8 /* TalkModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2A281F85D0633831F690A7 /* TalkModeController.swift */; };
+		80EC306D1EEBE4D657E0B597 /* IPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FF6853BE7F533AA91EFFB /* IPC.swift */; };
 		816CED52E0E7DF885C46DA75 /* AgentEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E02C1BF99701D847A17D661 /* AgentEventStore.swift */; };
 		82BDB0C731DC416CFBBCD313 /* ConnectionModeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7C7B80F61E2FA252D5922 /* ConnectionModeResolver.swift */; };
 		83A9B76E961164D41B8EA8E8 /* VoiceSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304DEBC9818193D3826C8C0 /* VoiceSessionCoordinator.swift */; };
@@ -145,7 +150,6 @@
 		8DCE81064197A8890ED47D64 /* ChannelsStore+Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AF98A5113D45024DC990A /* ChannelsStore+Lifecycle.swift */; };
 		8E23AA67B50A8733A2330FDD /* WebChatSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF17AB1227B9FE75D488489C /* WebChatSwiftUI.swift */; };
 		8EC069CE0D0891845584A9C7 /* OnboardingView+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430913FC48EEC4C254FEDF7A /* OnboardingView+Testing.swift */; };
-		8F00BA5486E405B145AD4A64 /* TailscaleServeGatewayDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667D969DBF9AF3478078D7B /* TailscaleServeGatewayDiscovery.swift */; };
 		9070BFEFF6DD0ACB48D8D7C8 /* OnboardingView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C3240CB81DA02E452CC8E6 /* OnboardingView+Actions.swift */; };
 		909B58B3861CFDAAF2EB1F98 /* ConnectionModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683877040A7BDF8F6644AE3 /* ConnectionModeCoordinator.swift */; };
 		9223E70ED8937597B1CD254F /* OnboardingView+Monitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2A790F92A4A8E259A16EB /* OnboardingView+Monitoring.swift */; };
@@ -161,6 +165,7 @@
 		9BFE17F6BEA227DBA1DC5A7C /* PeekabooBridgeHostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C03DC4F8546E3EDF75BAC6 /* PeekabooBridgeHostCoordinator.swift */; };
 		9CAE2588BF74B00F045E8DF0 /* DiagnosticsFileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4056740FAF9AA76AA219577 /* DiagnosticsFileLog.swift */; };
 		9EEE92C42E461FC35B92DC00 /* GatewayProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA84770FF60D1853E856CA78 /* GatewayProcessManager.swift */; };
+		9FFF09A0286A01ACAF40975E /* WideAreaGatewayDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39E1409918E606055152AB4 /* WideAreaGatewayDiscovery.swift */; };
 		A04CFB22A67A27AD5D5652EF /* ControlChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49465B8DAC975715F6E0D6B /* ControlChannel.swift */; };
 		A0A38ED3F50175DAA2D559B8 /* RemotePortTunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECE49985AE75B754516F80 /* RemotePortTunnel.swift */; };
 		A48822AF153644441F4405BD /* RuntimeLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D898ED3B8ECDD11E157157 /* RuntimeLocator.swift */; };
@@ -178,7 +183,6 @@
 		ABD25C90654EC3327665A66B /* SessionsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BD3EA7871F9299C6559E1 /* SessionsSettings.swift */; };
 		AC09CCC70E0EDEDF3834EC82 /* VoiceWakeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F980F67E18D0AE159396FAA5 /* VoiceWakeHelpers.swift */; };
 		AE4E1B522EB9A84CFDF1A6F2 /* ColorHexSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA219A3D05E68ACBCB54E9 /* ColorHexSupport.swift */; };
-		AE7C4FE40ED0260E6ECFB94D /* IPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FF6853BE7F533AA91EFFB /* IPC.swift */; };
 		AF5D3A9FAA96686FF0B2481F /* RemoteTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAC2F6F7C724A3727172BA6 /* RemoteTunnelManager.swift */; };
 		B042BC50029627D7AB06A3CC /* IconState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B7B6378814F76D2C209288 /* IconState.swift */; };
 		B074310D5E41019907A8F7E5 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D71BE3EDB87BC06212C68530 /* Logging */; };
@@ -189,6 +193,7 @@
 		B508DB5F1140AD537D2CE5D7 /* TalkAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AD1EE2AB57E1B032D7378 /* TalkAudioPlayer.swift */; };
 		B61BFB681FB3CE96B0C6E52F /* MacNodeScreenCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D537943D2BE65E313F30C3F4 /* MacNodeScreenCommands.swift */; };
 		B69E87F5662A8705B5BD76EB /* TailscaleIntegrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25228171353130FEA07BD9A /* TailscaleIntegrationSection.swift */; };
+		B6D51A13CA3BC7FD2C163141 /* OpenClawDiscovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C94428AC8C37441FB3A5585 /* OpenClawDiscovery.framework */; };
 		B7EB51E18F1A2259B2DBE7FE /* OpenClaw.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5D6F5D55348F43CC9F3D20A4 /* OpenClaw.icns */; };
 		B81593958281DB519E182693 /* ModelCatalogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E7A488A9C42AF2ABF3A17 /* ModelCatalogLoader.swift */; };
 		B88CAD1B3B4174CB7799E24B /* ExecShellWrapperParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2058CC9213B021CFC50A9A /* ExecShellWrapperParser.swift */; };
@@ -218,6 +223,7 @@
 		D1FC6A063B93450308F43371 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE1A11CB0BD3B93AABC63D7 /* SettingsRootView.swift */; };
 		D2280DB71D0E56DD2DDC278E /* MenuItemHighlightColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6DE55093886B24AB3AFB4 /* MenuItemHighlightColors.swift */; };
 		D248A6D0830C506F7948AB71 /* CritterIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94CAC07FBBB315B9C5D481 /* CritterIconRenderer.swift */; };
+		D39D65732FCC3F0F2D2DC8B4 /* OpenClawDiscovery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C94428AC8C37441FB3A5585 /* OpenClawDiscovery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D61B3A6AE7583B3CC7723A15 /* GatewayRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C7E2174165A79C7E26A87 /* GatewayRemoteConfig.swift */; };
 		DABD2CC3B44676A5DB3FEFBA /* OnboardingWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C524D5140D9455E5C4B1B /* OnboardingWidgets.swift */; };
 		DB43191D6815F4A4CB77591C /* GatewayConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8517BEBE4207D8A012B46D /* GatewayConnection.swift */; };
@@ -226,7 +232,6 @@
 		DE5257B5FD3C9A4C8EB2B84E /* CLIInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266304290037D87D843D0FB4 /* CLIInstaller.swift */; };
 		DEAF7AF5D428A1795A296F08 /* PointingHandCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0551160645C385CE3FFED31 /* PointingHandCursor.swift */; };
 		DF4CF4F43C9C43DE0AD5312F /* ChannelsSettings+ChannelSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CA11134D1CFFECA9D29B7E /* ChannelsSettings+ChannelSections.swift */; };
-		E04C80C2C339C1494966CC8F /* WideAreaGatewayDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39E1409918E606055152AB4 /* WideAreaGatewayDiscovery.swift */; };
 		E2B9767094F73C5D5241FF5F /* Subprocess in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF883E7C5EDA5C3C69C5D41 /* Subprocess */; };
 		E39A9FCA531BD40F0EAC5EEA /* CommandResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58C11DCD846571C829FEA8 /* CommandResolver.swift */; };
 		E4875F7F19F42B3381211D04 /* TrackingAreaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC7A337B922C05518E5ABCB /* TrackingAreaSupport.swift */; };
@@ -242,6 +247,7 @@
 		EFDE1E601C81EA8097BEEB14 /* SettingsSidebarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF352F22590EBD4AADF4F86 /* SettingsSidebarCard.swift */; };
 		F07583726520309A6A77D0E2 /* String+NonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346773AABBE408A02CAC741A /* String+NonEmpty.swift */; };
 		F0D4AA9EF6424C6D21E74EB0 /* GatewayDiscoveryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA197F5919B36BA6D3CAD165 /* GatewayDiscoveryMenu.swift */; };
+		F10E4CB7E640ABD0C0F2676C /* OpenClawIPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53551ACBEC548898B82BFF7C /* OpenClawIPC.framework */; };
 		F2840F5FD1CE8AA579174EED /* GatewayEndpointStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A964FEB3460490C26E6565E /* GatewayEndpointStore.swift */; };
 		F3DBA4969D94760DACE791D8 /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792745F8A91169EED58AA8E6 /* SettingsComponents.swift */; };
 		F52D391106F5A9366FB48094 /* MenuContextCardInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002648B19F4E2A66B2BCD4A8 /* MenuContextCardInjector.swift */; };
@@ -252,12 +258,43 @@
 		F7892A23792B305FCF5672BC /* MacNodeModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25F5B28F9B15DD2C0A92AE /* MacNodeModeCoordinator.swift */; };
 		F985A721A64C0D14BA2E9CF3 /* ConfigFileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59475CB8AE7EEC843F273F42 /* ConfigFileWatcher.swift */; };
 		F9DA2186506C3EB40E24E50A /* VoiceWakeTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534C17A243B3F3A6D66F2C0 /* VoiceWakeTester.swift */; };
-		F9E4EC058FBB1F2323F8EE10 /* TailscaleNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D83C8ADEAC019A1ED14C5 /* TailscaleNetwork.swift */; };
 		FD3ADC1987047F378EC065C9 /* ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D046C7013DD132EA1668F0 /* ChannelsStore.swift */; };
 		FDB10C7F532437AB2C191173 /* MicLevelMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B6E9DE284EB01AD66CB6C /* MicLevelMonitor.swift */; };
 		FE9A226DC48D9CE36B0CF2EE /* OpenClawConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374C68EEFA7CEF7EBA27B3F /* OpenClawConfigFile.swift */; };
 		FF80BA4A5A163136BB686FDF /* PresenceReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F450DA7A149DC26C9F370F /* PresenceReporter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		485C35AB87497B0CB3A15620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6285441008EC76BB51272D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 657C0527A8D96C5EC708F1D4;
+			remoteInfo = OpenClawDiscovery;
+		};
+		6B242FEB3BFF7CCB0B2532C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6285441008EC76BB51272D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99047F210FEC75DD3E5EB389;
+			remoteInfo = OpenClawIPC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7AB5B60867388A6DF79A1F36 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6408008999EC1BBAB13EDBDB /* OpenClawIPC.framework in Embed Frameworks */,
+				D39D65732FCC3F0F2D2DC8B4 /* OpenClawDiscovery.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		002648B19F4E2A66B2BCD4A8 /* MenuContextCardInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContextCardInjector.swift; sourceTree = "<group>"; };
@@ -294,6 +331,7 @@
 		2A94CAC07FBBB315B9C5D481 /* CritterIconRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterIconRenderer.swift; sourceTree = "<group>"; };
 		2BCCD9E3BB6ED9CF36F9D57E /* MacNodeLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacNodeLocationService.swift; sourceTree = "<group>"; };
 		2BDC1BC7C9CBF49560435980 /* HostEnvSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEnvSanitizer.swift; sourceTree = "<group>"; };
+		2C94428AC8C37441FB3A5585 /* OpenClawDiscovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenClawDiscovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EBC0FE61547242F8460A314 /* MicRefreshSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicRefreshSupport.swift; sourceTree = "<group>"; };
 		2FB7262EB123EECBD7105948 /* DockIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockIconManager.swift; sourceTree = "<group>"; };
 		315509873B715A79C303F56D /* DebugSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
@@ -336,6 +374,7 @@
 		4F8B6E9DE284EB01AD66CB6C /* MicLevelMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicLevelMonitor.swift; sourceTree = "<group>"; };
 		4FA77B00BE1FCB386BCDC366 /* UsageMenuLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageMenuLabelView.swift; sourceTree = "<group>"; };
 		5176E624F31FD7DEE6409B71 /* AudioInputDeviceObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputDeviceObserver.swift; sourceTree = "<group>"; };
+		53551ACBEC548898B82BFF7C /* OpenClawIPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenClawIPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FAC3C8C89BDDDA99AF633D /* CronJobsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CronJobsStore.swift; sourceTree = "<group>"; };
 		551C7E2174165A79C7E26A87 /* GatewayRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayRemoteConfig.swift; sourceTree = "<group>"; };
 		569025033FF44B655BE9FC0C /* CronJobEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CronJobEditor.swift; sourceTree = "<group>"; };
@@ -506,10 +545,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		61DC84C250FB4824BFB92964 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57E053C94CBE2FCFBCAB8850 /* OpenClawKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD5936AD9CACA57626CA87DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10E4CB7E640ABD0C0F2676C /* OpenClawIPC.framework in Frameworks */,
+				B6D51A13CA3BC7FD2C163141 /* OpenClawDiscovery.framework in Frameworks */,
 				3F2259AE1FD68EC026B1D812 /* OpenClawKit in Frameworks */,
 				47F4658CFB7610100F874067 /* OpenClawChatUI in Frameworks */,
 				34B32D1B2378C516C704F438 /* OpenClawProtocol in Frameworks */,
@@ -550,6 +599,8 @@
 		3F43AD87823828F4C7B0E5E8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				2C94428AC8C37441FB3A5585 /* OpenClawDiscovery.framework */,
+				53551ACBEC548898B82BFF7C /* OpenClawIPC.framework */,
 				4F0D3ED823B0AE4192EBB602 /* XWorkmate.app */,
 			);
 			name = Products;
@@ -853,6 +904,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		657C0527A8D96C5EC708F1D4 /* OpenClawDiscovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B1787A821BBB946B9FC164 /* Build configuration list for PBXNativeTarget "OpenClawDiscovery" */;
+			buildPhases = (
+				C224F19B0100D359DE3D3288 /* Sources */,
+				61DC84C250FB4824BFB92964 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenClawDiscovery;
+			packageProductDependencies = (
+				5325F6D88B0A1E1A97992778 /* OpenClawKit */,
+			);
+			productName = OpenClawDiscovery;
+			productReference = 2C94428AC8C37441FB3A5585 /* OpenClawDiscovery.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		99047F210FEC75DD3E5EB389 /* OpenClawIPC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20EF0AC86CB7CD8832474BFB /* Build configuration list for PBXNativeTarget "OpenClawIPC" */;
+			buildPhases = (
+				C6F2CFF42FAA7BDC1759B1E0 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenClawIPC;
+			packageProductDependencies = (
+			);
+			productName = OpenClawIPC;
+			productReference = 53551ACBEC548898B82BFF7C /* OpenClawIPC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		AF4FCA36464B60A82C045E4C /* XWorkmate */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C572B9630E2571083E44EB0 /* Build configuration list for PBXNativeTarget "XWorkmate" */;
@@ -860,10 +947,13 @@
 				9DFC4B2A930B6DB28F1DDFB4 /* Sources */,
 				F68606820E3B6E29CD60C2B2 /* Resources */,
 				CD5936AD9CACA57626CA87DE /* Frameworks */,
+				7AB5B60867388A6DF79A1F36 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EA782D0C29C610A89AF916E6 /* PBXTargetDependency */,
+				59233D75713D994DCBBC7711 /* PBXTargetDependency */,
 			);
 			name = XWorkmate;
 			packageProductDependencies = (
@@ -915,10 +1005,11 @@
 				D827D02F5E3A2840D1D87FFC /* XCLocalSwiftPackageReference "../shared/OpenClawKit" */,
 				4A616D8D77F7EB95C4A2E2BC /* XCLocalSwiftPackageReference "../../Swabble" */,
 			);
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				657C0527A8D96C5EC708F1D4 /* OpenClawDiscovery */,
+				99047F210FEC75DD3E5EB389 /* OpenClawIPC */,
 				AF4FCA36464B60A82C045E4C /* XWorkmate */,
 			);
 		};
@@ -1032,7 +1123,6 @@
 				8C782564E033B50DB38EEC74 /* GatewayConnectivityCoordinator.swift in Sources */,
 				A9ACA0611BE34E01F2A0CF10 /* GatewayDiscoveryHelpers.swift in Sources */,
 				F0D4AA9EF6424C6D21E74EB0 /* GatewayDiscoveryMenu.swift in Sources */,
-				6E5B8D534B14187DF4CFC5E7 /* GatewayDiscoveryModel.swift in Sources */,
 				1D5E6876E0F291785B6FEC17 /* GatewayDiscoveryPreferences.swift in Sources */,
 				E7F76065C05DBA55E873102E /* GatewayDiscoverySelectionSupport.swift in Sources */,
 				F2840F5FD1CE8AA579174EED /* GatewayEndpointStore.swift in Sources */,
@@ -1047,7 +1137,6 @@
 				A81EEF1831C9124641D05676 /* HostEnvSanitizer.swift in Sources */,
 				E55310F0F3D9D8F640A4C993 /* HostEnvSecurityPolicy.generated.swift in Sources */,
 				6510776DC99FFC64470EEF34 /* HoverHUD.swift in Sources */,
-				AE7C4FE40ED0260E6ECFB94D /* IPC.swift in Sources */,
 				B042BC50029627D7AB06A3CC /* IconState.swift in Sources */,
 				CEA8CA802BF939FA220C029D /* InstancesSettings.swift in Sources */,
 				96462D1E6AA520229FF7F151 /* InstancesStore.swift in Sources */,
@@ -1137,8 +1226,6 @@
 				45F54959814832F9C6F3F742 /* SystemRunSettingsView.swift in Sources */,
 				C6A47AB5170A7610475E909C /* SystemSettingsURLSupport.swift in Sources */,
 				B69E87F5662A8705B5BD76EB /* TailscaleIntegrationSection.swift in Sources */,
-				F9E4EC058FBB1F2323F8EE10 /* TailscaleNetwork.swift in Sources */,
-				8F00BA5486E405B145AD4A64 /* TailscaleServeGatewayDiscovery.swift in Sources */,
 				614D1E48CA91B4E3C654DE24 /* TailscaleService.swift in Sources */,
 				B508DB5F1140AD537D2CE5D7 /* TalkAudioPlayer.swift in Sources */,
 				809199AAC939D501E057BFA8 /* TalkModeController.swift in Sources */,
@@ -1176,13 +1263,44 @@
 				69DAC5D05F6DF4A6E1C10747 /* VoiceWakeTextUtils.swift in Sources */,
 				04B18036C6050172BE4A7EA5 /* WebChatManager.swift in Sources */,
 				8E23AA67B50A8733A2330FDD /* WebChatSwiftUI.swift in Sources */,
-				E04C80C2C339C1494966CC8F /* WideAreaGatewayDiscovery.swift in Sources */,
 				509963C0CEFE3D7413124E8E /* WindowPlacement.swift in Sources */,
 				C505940EDB78B5F4A530D401 /* WorkActivityStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C224F19B0100D359DE3D3288 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43635460A36A07B0813C473C /* GatewayDiscoveryModel.swift in Sources */,
+				3E32686CBCF3172F6A755376 /* TailscaleNetwork.swift in Sources */,
+				0A3BEE74F88C76F0A1111328 /* TailscaleServeGatewayDiscovery.swift in Sources */,
+				9FFF09A0286A01ACAF40975E /* WideAreaGatewayDiscovery.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F2CFF42FAA7BDC1759B1E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80EC306D1EEBE4D657E0B597 /* IPC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59233D75713D994DCBBC7711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 657C0527A8D96C5EC708F1D4 /* OpenClawDiscovery */;
+			targetProxy = 485C35AB87497B0CB3A15620 /* PBXContainerItemProxy */;
+		};
+		EA782D0C29C610A89AF916E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99047F210FEC75DD3E5EB389 /* OpenClawIPC */;
+			targetProxy = 6B242FEB3BFF7CCB0B2532C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		284E32C6688175C375620ED8 /* Debug */ = {
@@ -1202,6 +1320,58 @@
 				PRODUCT_BUNDLE_IDENTIFIER = plus.svc.xworkmate;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		730A18308B7ECCDC4A2D9616 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N3G9T67W78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plus.svc.xworkmate;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		774C3AA433DC6A4003B970C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plus.svc.OpenClawIPC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1324,6 +1494,34 @@
 			};
 			name = Debug;
 		};
+		B3992C0CF16D641BA22DF569 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N3G9T67W78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plus.svc.xworkmate;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
 		C122C6E04124A76C78C55D77 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1344,14 +1542,56 @@
 			};
 			name = Release;
 		};
+		DC89BE18A974CF5E5C4A6B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plus.svc.OpenClawIPC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		20EF0AC86CB7CD8832474BFB /* Build configuration list for PBXNativeTarget "OpenClawIPC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				774C3AA433DC6A4003B970C1 /* Debug */,
+				DC89BE18A974CF5E5C4A6B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		9C572B9630E2571083E44EB0 /* Build configuration list for PBXNativeTarget "XWorkmate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284E32C6688175C375620ED8 /* Debug */,
 				C122C6E04124A76C78C55D77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A1B1787A821BBB946B9FC164 /* Build configuration list for PBXNativeTarget "OpenClawDiscovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3992C0CF16D641BA22DF569 /* Debug */,
+				730A18308B7ECCDC4A2D9616 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1444,6 +1684,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6BB587D78480A05AD3536DED /* XCRemoteSwiftPackageReference "Peekaboo" */;
 			productName = PeekabooBridge;
+		};
+		5325F6D88B0A1E1A97992778 /* OpenClawKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenClawKit;
 		};
 		7B6D937C8E973FDA1D8C5429 /* OpenClawChatUI */ = {
 			isa = XCSwiftPackageProductDependency;

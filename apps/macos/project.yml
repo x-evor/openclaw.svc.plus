@@ -27,6 +27,29 @@ packages:
     branch: main
 
 targets:
+  OpenClawIPC:
+    type: framework
+    platform: macOS
+    sources:
+      - path: Sources/OpenClawIPC
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+
+  OpenClawDiscovery:
+    type: framework
+    platform: macOS
+    sources:
+      - path: Sources/OpenClawDiscovery
+    dependencies:
+      - package: OpenClawKit
+        product: OpenClawKit
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+
   XWorkmate:
     type: application
     platform: macOS
@@ -34,9 +57,9 @@ targets:
       - path: Sources/OpenClaw
         excludes:
           - Resources/Info.plist
-      - path: Sources/OpenClawDiscovery
-      - path: Sources/OpenClawIPC
     dependencies:
+      - target: OpenClawIPC
+      - target: OpenClawDiscovery
       - package: OpenClawKit
         product: OpenClawKit
       - package: OpenClawKit

@@ -2,14 +2,15 @@ import path from "node:path";
 import type { AgentToolResult } from "@mariozechner/pi-agent-core";
 import { analyzeShellCommand } from "../infra/exec-approvals-analysis.js";
 import {
+  type ExecAsk,
   type ExecHost,
+  type ExecSecurity,
   loadExecApprovals,
   maxAsk,
   minSecurity,
-  resolveExecApprovalsFromFile,
+  requireValidExecTarget,
 } from "../infra/exec-approvals.js";
 import { resolveExecSafeBinRuntimePolicy } from "../infra/exec-safe-bin-runtime-policy.js";
-import { SafeOpenError, readFileWithinRoot } from "../infra/fs-safe.js";
 import { sanitizeHostExecEnvWithDiagnostics } from "../infra/host-env-security.js";
 import {
   getShellPathFromLoginShell,
@@ -17,15 +18,19 @@ import {
 } from "../infra/shell-env.js";
 import { logInfo } from "../logger.js";
 import { parseAgentSessionKey, resolveAgentIdFromSessionKey } from "../routing/session-key.js";
+import { createLazyImportLoader } from "../shared/lazy-promise.js";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
 } from "../shared/string-coerce.js";
+import { normalizeDeliveryContext } from "../utils/delivery-context.js";
 import { splitShellArgs } from "../utils/shell-argv.js";
 import { markBackgrounded } from "./bash-process-registry.js";
+import { describeExecTool } from "./bash-tools.descriptions.js";
 import { processGatewayAllowlist } from "./bash-tools.exec-host-gateway.js";
 import { executeNodeHostCommand } from "./bash-tools.exec-host-node.js";
+import { renderExecOutputText } from "./bash-tools.exec-output.js";
 import {
   DEFAULT_MAX_OUTPUT,
   DEFAULT_PATH,
@@ -35,7 +40,6 @@ import {
   applyShellPath,
   normalizeExecAsk,
   normalizeExecSecurity,
-  normalizeExecTarget,
   normalizePathPrepend,
   resolveExecTarget,
   resolveApprovalRunningNoticeMs,
@@ -82,7 +86,7 @@ function buildExecForegroundResult(params: {
       cwd: params.cwd,
     });
   }
-  return textResult(`${warningText}${params.outcome.aggregated || "(no output)"}`, {
+  return textResult(`${warningText}${renderExecOutputText(params.outcome.aggregated)}`, {
     status: "completed",
     exitCode: params.outcome.exitCode,
     durationMs: params.outcome.durationMs,
@@ -122,7 +126,20 @@ function getNodeErrorCode(error: unknown): string | undefined {
   return String((error as { code?: unknown }).code);
 }
 
-function shouldSkipScriptPreflightPathError(error: unknown): boolean {
+type FsSafeModule = typeof import("../infra/fs-safe.js");
+
+const fsSafeModuleLoader = createLazyImportLoader<FsSafeModule>(
+  () => import("../infra/fs-safe.js"),
+);
+
+async function loadFsSafeModule(): Promise<FsSafeModule> {
+  return await fsSafeModuleLoader.load();
+}
+
+function shouldSkipScriptPreflightPathError(
+  error: unknown,
+  SafeOpenError: FsSafeModule["SafeOpenError"],
+): boolean {
   if (error instanceof SafeOpenError) {
     return true;
   }
@@ -763,12 +780,13 @@ function shouldFailClosedInterpreterPreflight(command: string): {
   const rawArgv = splitShellArgs(raw);
   const argv = rawArgv ? stripPreflightEnvPrefix(rawArgv) : null;
   let commandIdx = 0;
-  while (
-    argv &&
-    commandIdx < argv.length &&
-    /^[A-Za-z_][A-Za-z0-9_]*=.*$/u.test(argv[commandIdx])
-  ) {
-    commandIdx += 1;
+  if (argv) {
+    while (
+      commandIdx < argv.length &&
+      /^[A-Za-z_][A-Za-z0-9_]*=.*$/u.test(argv[commandIdx] ?? "")
+    ) {
+      commandIdx += 1;
+    }
   }
   const directExecutable = normalizeOptionalLowercaseString(argv?.[commandIdx]);
   const args = argv ? argv.slice(commandIdx + 1) : [];
@@ -954,6 +972,7 @@ async function validateScriptFileForShellBleed(params: {
     return;
   }
 
+  const { SafeOpenError, readFileWithinRoot } = await loadFsSafeModule();
   for (const relOrAbsPath of target.relOrAbsPaths) {
     const absPath = path.isAbsolute(relOrAbsPath)
       ? path.resolve(relOrAbsPath)
@@ -981,7 +1000,7 @@ async function validateScriptFileForShellBleed(params: {
       });
       content = safeRead.buffer.toString("utf-8");
     } catch (error) {
-      if (shouldSkipScriptPreflightPathError(error)) {
+      if (shouldSkipScriptPreflightPathError(error, SafeOpenError)) {
         // Preflight validation is best-effort: skip path/read failures and
         // continue to execute the command normally.
         continue;
@@ -1027,6 +1046,14 @@ async function validateScriptFileForShellBleed(params: {
   }
 }
 
+function shouldSkipExecScriptPreflight(params: {
+  host: ExecHost;
+  security: ExecSecurity;
+  ask: ExecAsk;
+}): boolean {
+  return params.host === "gateway" && params.security === "full" && params.ask === "off";
+}
+
 type ParsedExecApprovalCommand = {
   approvalId: string;
   decision: "allow-once" | "allow-always" | "deny";
@@ -1049,7 +1076,69 @@ function parseExecApprovalShellCommand(raw: string): ParsedExecApprovalCommand |
   };
 }
 
-function rejectExecApprovalShellCommand(command: string): void {
+function normalizeCommandBaseName(token: string | undefined): string {
+  if (!token) {
+    return "";
+  }
+  const base = normalizeLowercaseStringOrEmpty(token.split(/[\\/]/u).at(-1));
+  return base.replace(/\.(?:cmd|exe)$/u, "");
+}
+
+function stripOpenClawPackageRunner(argv: string[]): string[] {
+  const commandName = normalizeCommandBaseName(argv[0]);
+  if (commandName === "openclaw") {
+    return argv;
+  }
+  if (
+    (commandName === "pnpm" || commandName === "npm" || commandName === "yarn") &&
+    normalizeCommandBaseName(argv[1]) === "openclaw"
+  ) {
+    return argv.slice(1);
+  }
+  if (
+    (commandName === "pnpm" || commandName === "npm" || commandName === "yarn") &&
+    (argv[1] === "exec" || argv[1] === "dlx" || argv[1] === "run") &&
+    normalizeCommandBaseName(argv[2]) === "openclaw"
+  ) {
+    return argv.slice(2);
+  }
+  if (commandName === "npx" || commandName === "bunx") {
+    let idx = 1;
+    while (idx < argv.length) {
+      const token = argv[idx];
+      if (token === "--") {
+        idx += 1;
+        break;
+      }
+      if (!token.startsWith("-") || token === "-") {
+        break;
+      }
+      idx += 1;
+      if ((token === "-p" || token === "--package") && idx < argv.length) {
+        idx += 1;
+      }
+    }
+    if (normalizeCommandBaseName(argv[idx]) === "openclaw") {
+      return argv.slice(idx);
+    }
+  }
+  return argv;
+}
+
+function parseOpenClawChannelsLoginShellCommand(raw: string): boolean {
+  const argv = splitShellArgs(raw);
+  if (!argv) {
+    return false;
+  }
+  const openclawArgv = stripOpenClawPackageRunner(argv);
+  return (
+    normalizeCommandBaseName(openclawArgv[0]) === "openclaw" &&
+    (openclawArgv[1] === "channels" || openclawArgv[1] === "channel") &&
+    openclawArgv[2] === "login"
+  );
+}
+
+function rejectUnsafeControlShellCommand(command: string): void {
   const isEnvAssignmentToken = (token: string): boolean =>
     /^[A-Za-z_][A-Za-z0-9_]*=.*$/u.test(token);
   const shellWrappers = new Set(["bash", "dash", "fish", "ksh", "sh", "zsh"]);
@@ -1270,79 +1359,25 @@ function rejectExecApprovalShellCommand(command: string): void {
           return argv ? buildCandidates(argv) : [line];
         });
   for (const candidate of candidates) {
-    if (!parseExecApprovalShellCommand(candidate)) {
-      continue;
+    if (parseExecApprovalShellCommand(candidate)) {
+      throw new Error(
+        [
+          "exec cannot run /approve commands.",
+          "Show the /approve command to the user as chat text, or route it through the approval command handler instead of shell execution.",
+        ].join(" "),
+      );
     }
-    throw new Error(
-      [
-        "exec cannot run /approve commands.",
-        "Show the /approve command to the user as chat text, or route it through the approval command handler instead of shell execution.",
-      ].join(" "),
-    );
+    if (parseOpenClawChannelsLoginShellCommand(candidate)) {
+      throw new Error(
+        [
+          "exec cannot run interactive OpenClaw channel login commands.",
+          "Run `openclaw channels login` in a terminal on the gateway host, or use the channel-specific login agent tool when available (for WhatsApp: `whatsapp_login`).",
+        ].join(" "),
+      );
+    }
   }
 }
 
-/**
- * Show the exact approved token in hints. Absolute paths stay absolute so the
- * hint cannot imply an equivalent PATH lookup that resolves to a different binary.
- */
-function deriveExecShortName(fullPath: string): string {
-  if (path.isAbsolute(fullPath)) {
-    return fullPath;
-  }
-  const base = path.basename(fullPath);
-  return base.replace(/\.exe$/i, "") || base;
-}
-
-export function describeExecTool(params?: { agentId?: string; hasCronTool?: boolean }): string {
-  const base = [
-    "Execute shell commands with background continuation for work that starts now.",
-    "Use yieldMs/background to continue later via process tool.",
-    "For long-running work started now, rely on automatic completion wake when it is enabled and the command emits output or fails; otherwise use process to confirm completion. Use process whenever you need logs, status, input, or intervention.",
-    params?.hasCronTool
-      ? "Do not use exec sleep or delay loops for reminders or deferred follow-ups; use cron instead."
-      : undefined,
-    "Use pty=true for TTY-required commands (terminal UIs, coding agents).",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  if (process.platform !== "win32") {
-    return base;
-  }
-  const lines: string[] = [base];
-  lines.push(
-    "IMPORTANT (Windows): Run executables directly — do NOT wrap commands in `cmd /c`, `powershell -Command`, `& ` prefix, or WSL. Use backslash paths (C:\\path), not forward slashes. Use short executable names (e.g. `node`, `python3`) instead of full paths.",
-  );
-  try {
-    const approvalsFile = loadExecApprovals();
-    const approvals = resolveExecApprovalsFromFile({
-      file: approvalsFile,
-      agentId: params?.agentId,
-    });
-    const allowlist = approvals.allowlist.filter((entry) => {
-      const pattern = entry.pattern?.trim() ?? "";
-      return (
-        pattern.length > 0 &&
-        pattern !== "*" &&
-        !pattern.startsWith("=command:") &&
-        (pattern.includes("/") || pattern.includes("\\") || pattern.includes("~"))
-      );
-    });
-    if (allowlist.length > 0) {
-      lines.push(
-        "Pre-approved executables (exact arguments are enforced at runtime; no approval prompt needed when args match):",
-      );
-      for (const entry of allowlist.slice(0, 10)) {
-        const shortName = deriveExecShortName(entry.pattern);
-        const argNote = entry.argPattern ? "(restricted args)" : "(any arguments)";
-        lines.push(`  ${shortName} ${argNote}`);
-      }
-    }
-  } catch {
-    // Allowlist loading is best-effort; don't block tool creation.
-  }
-  return lines.join("\n");
-}
 export function createExecTool(
   defaults?: ExecToolDefaults,
 ): AgentToolWithMeta<typeof execSchema, ExecToolDetails> {
@@ -1387,6 +1422,12 @@ export function createExecTool(
   const notifyOnExit = defaults?.notifyOnExit !== false;
   const notifyOnExitEmptySuccess = defaults?.notifyOnExitEmptySuccess === true;
   const notifySessionKey = normalizeOptionalString(defaults?.sessionKey);
+  const notifyDeliveryContext = normalizeDeliveryContext({
+    channel: defaults?.messageProvider,
+    to: defaults?.currentChannelId,
+    accountId: defaults?.accountId,
+    threadId: defaults?.currentThreadTs,
+  });
   const approvalRunningNoticeMs = resolveApprovalRunningNoticeMs(defaults?.approvalRunningNoticeMs);
   // Derive agentId only when sessionKey is an agent session key.
   const parsedAgentSession = parseAgentSessionKey(defaults?.sessionKey);
@@ -1425,6 +1466,10 @@ export function createExecTool(
       const maxOutput = DEFAULT_MAX_OUTPUT;
       const pendingMaxOutput = DEFAULT_PENDING_MAX_OUTPUT;
       const warnings: string[] = [];
+      const approvalWarningText = normalizeOptionalString(defaults?.approvalWarningText);
+      if (approvalWarningText) {
+        warnings.push(approvalWarningText);
+      }
       let execCommandOverride: string | undefined;
       const backgroundRequested = params.background === true;
       const yieldRequested = typeof params.yieldMs === "number";
@@ -1500,9 +1545,10 @@ export function createExecTool(
       if (elevatedRequested) {
         logInfo(`exec: elevated command ${truncateMiddle(params.command, 120)}`);
       }
+      const requestedTarget = requireValidExecTarget(params.host);
       const target = resolveExecTarget({
         configuredTarget: defaults?.host,
-        requestedTarget: normalizeExecTarget(params.host),
+        requestedTarget,
         elevatedRequested,
         sandboxAvailable: Boolean(defaults?.sandbox),
       });
@@ -1562,7 +1608,7 @@ export function createExecTool(
         const rawWorkdir = explicitWorkdir ?? defaultWorkdir ?? process.cwd();
         workdir = resolveWorkdir(rawWorkdir, warnings);
       }
-      rejectExecApprovalShellCommand(params.command);
+      rejectUnsafeControlShellCommand(params.command);
 
       const inheritedBaseEnv = coerceEnv(process.env);
       const hostEnvResult =
@@ -1659,6 +1705,7 @@ export function createExecTool(
           approvalRunningNoticeMs,
           warnings,
           notifySessionKey,
+          notifyOnExit,
           trustedSafeBinDirs,
         });
       }
@@ -1689,6 +1736,9 @@ export function createExecTool(
           turnSourceAccountId: defaults?.accountId,
           turnSourceThreadId: defaults?.currentThreadTs,
           scopeKey: defaults?.scopeKey,
+          approvalFollowupText: defaults?.approvalFollowupText,
+          approvalFollowup: defaults?.approvalFollowup,
+          approvalFollowupMode: defaults?.approvalFollowupMode,
           warnings,
           notifySessionKey,
           approvalRunningNoticeMs,
@@ -1706,17 +1756,15 @@ export function createExecTool(
       }
 
       const explicitTimeoutSec = typeof params.timeout === "number" ? params.timeout : null;
-      const backgroundTimeoutBypass =
-        allowBackground && explicitTimeoutSec === null && (backgroundRequested || yieldRequested);
-      const effectiveTimeout = backgroundTimeoutBypass
-        ? null
-        : (explicitTimeoutSec ?? defaultTimeoutSec);
+      const effectiveTimeout = explicitTimeoutSec ?? defaultTimeoutSec;
       const getWarningText = () => (warnings.length ? `${warnings.join("\n")}\n\n` : "");
       const usePty = params.pty === true && !sandbox;
 
       // Preflight: catch a common model failure mode (shell syntax leaking into Python/JS sources)
       // before we execute and burn tokens in cron loops.
-      await validateScriptFileForShellBleed({ command: params.command, workdir });
+      if (!shouldSkipExecScriptPreflight({ host, security, ask })) {
+        await validateScriptFileForShellBleed({ command: params.command, workdir });
+      }
 
       const run = await runExecProcess({
         command: params.command,
@@ -1733,6 +1781,7 @@ export function createExecTool(
         notifyOnExitEmptySuccess,
         scopeKey: defaults?.scopeKey,
         sessionKey: notifySessionKey,
+        notifyDeliveryContext,
         timeoutSec: effectiveTimeout,
         onUpdate,
       });
@@ -1742,6 +1791,14 @@ export function createExecTool(
 
       // Tool-call abort should not kill backgrounded sessions; timeouts still must.
       const onAbortSignal = () => {
+        // Immediately suppress onUpdate calls so that any late stdout/stderr
+        // from the still-running process cannot push a rejected Promise into
+        // pi-agent-core's updateEvents after the agent run has ended (#62520).
+        // Intentionally placed *before* the yielded/backgrounded guard: the
+        // agent run is ending regardless, so no consumer exists for further
+        // tool_execution_update events even for backgrounded sessions (which
+        // retrieve output via process poll/log instead of onUpdate callbacks).
+        run.disableUpdates();
         if (yielded || run.session.backgrounded) {
           return;
         }
@@ -1833,3 +1890,8 @@ export function createExecTool(
 }
 
 export const execTool = createExecTool();
+
+export const __testing = {
+  parseOpenClawChannelsLoginShellCommand,
+  validateScriptFileForShellBleed,
+};

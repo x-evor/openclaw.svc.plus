@@ -1,10 +1,15 @@
+import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
 import officialExternalChannelCatalog from "../../scripts/lib/official-external-channel-catalog.json" with { type: "json" };
 import officialExternalPluginCatalog from "../../scripts/lib/official-external-plugin-catalog.json" with { type: "json" };
 import officialExternalProviderCatalog from "../../scripts/lib/official-external-provider-catalog.json" with { type: "json" };
 import { MANIFEST_KEY } from "../compat/legacy-names.js";
-import { normalizeOptionalString } from "../shared/string-coerce.js";
 import { isRecord } from "../utils.js";
-import type { PluginPackageInstall } from "./manifest.js";
+import type {
+  PluginManifestChannelConfig,
+  PluginManifestContracts,
+  PluginPackageInstall,
+} from "./manifest.js";
 
 type ManifestKey = typeof MANIFEST_KEY;
 
@@ -22,7 +27,7 @@ export type OfficialExternalProviderAuthChoice = {
   cliFlag?: string;
   cliOption?: string;
   cliDescription?: string;
-  onboardingScopes?: readonly ("text-inference" | "image-generation")[];
+  onboardingScopes?: readonly ("text-inference" | "image-generation" | "music-generation")[];
 };
 
 export type OfficialExternalProviderCatalogProvider = {
@@ -60,6 +65,8 @@ export type OfficialExternalPluginCatalogManifest = {
   providers?: readonly OfficialExternalProviderCatalogProvider[];
   webSearchProviders?: readonly OfficialExternalWebSearchProvider[];
   install?: PluginPackageInstall;
+  contracts?: PluginManifestContracts;
+  channelConfigs?: Record<string, PluginManifestChannelConfig>;
 };
 
 export type OfficialExternalPluginCatalogEntry = {
@@ -116,11 +123,13 @@ function resolveOfficialExternalPluginLookupIds(
   entry: OfficialExternalPluginCatalogEntry,
 ): string[] {
   const manifest = getOfficialExternalPluginCatalogManifest(entry);
-  return [
-    normalizeOptionalString(manifest?.plugin?.id),
-    normalizeOptionalString(manifest?.channel?.id),
-    normalizeOptionalString(manifest?.providers?.[0]?.id),
-  ].filter((value, index, all): value is string => Boolean(value) && all.indexOf(value) === index);
+  return uniqueStrings(
+    [
+      normalizeOptionalString(manifest?.plugin?.id),
+      normalizeOptionalString(manifest?.channel?.id),
+      normalizeOptionalString(manifest?.providers?.[0]?.id),
+    ].filter((value): value is string => Boolean(value)),
+  );
 }
 
 export function resolveOfficialExternalPluginLabel(
@@ -196,5 +205,17 @@ export function getOfficialExternalPluginCatalogEntry(
   }
   return listOfficialExternalPluginCatalogEntries().find((entry) =>
     resolveOfficialExternalPluginLookupIds(entry).includes(normalized),
+  );
+}
+
+export function getOfficialExternalPluginCatalogEntryForPackage(
+  packageName: string | undefined,
+): OfficialExternalPluginCatalogEntry | undefined {
+  const normalized = packageName?.trim();
+  if (!normalized) {
+    return undefined;
+  }
+  return listOfficialExternalPluginCatalogEntries().find(
+    (entry) => normalizeOptionalString(entry.name) === normalized,
   );
 }

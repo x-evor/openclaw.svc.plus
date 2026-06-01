@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
 import type { Command } from "commander";
+import { tryReadJsonSync } from "../infra/json-files.js";
 import { findBundledPluginSource } from "../plugins/bundled-sources.js";
 import { loadPluginManifest } from "../plugins/manifest.js";
 import {
@@ -11,7 +13,7 @@ import {
 import { resolveUserPath } from "../utils.js";
 import { parseNpmPrefixSpec, resolveFileNpmSpecToLocalPath } from "./plugins-command-helpers.js";
 
-type PluginInstallInvalidConfigPolicy = "deny" | "allow-bundled-recovery";
+type PluginInstallInvalidConfigPolicy = "deny" | "allow-plugin-recovery";
 
 export type PluginInstallRequestContext = {
   rawSpec: string;
@@ -40,24 +42,17 @@ function readBundledInstallRecoveryMetadata(rootDir: string): {
   }
   const manifest = loadPluginManifest(rootDir, false);
   const pluginId = manifest.ok ? manifest.manifest.id : undefined;
-  try {
-    const parsed = JSON.parse(fs.readFileSync(packageJsonPath, "utf8")) as {
-      openclaw?: {
-        install?: {
-          allowInvalidConfigRecovery?: boolean;
-        };
+  const parsed = tryReadJsonSync<{
+    openclaw?: {
+      install?: {
+        allowInvalidConfigRecovery?: boolean;
       };
     };
-    return {
-      ...(pluginId ? { pluginId } : {}),
-      allowInvalidConfigRecovery: parsed.openclaw?.install?.allowInvalidConfigRecovery === true,
-    };
-  } catch {
-    return {
-      ...(pluginId ? { pluginId } : {}),
-      allowInvalidConfigRecovery: false,
-    };
-  }
+  }>(packageJsonPath);
+  return {
+    ...(pluginId ? { pluginId } : {}),
+    allowInvalidConfigRecovery: parsed?.openclaw?.install?.allowInvalidConfigRecovery === true,
+  };
 }
 
 function resolveBundledInstallRecoveryMetadata(
@@ -116,9 +111,12 @@ function resolveOfficialExternalInstallRecoveryMetadata(
   const rawNpmPrefixSpec = parseNpmPrefixSpec(request.rawSpec);
   const normalizedNpmPrefixSpec = parseNpmPrefixSpec(request.normalizedSpec);
   const values = new Set(
-    [request.rawSpec, request.normalizedSpec, rawNpmPrefixSpec ?? "", normalizedNpmPrefixSpec ?? ""]
-      .map((value) => value.trim())
-      .filter(Boolean),
+    normalizeStringEntries([
+      request.rawSpec,
+      request.normalizedSpec,
+      rawNpmPrefixSpec ?? "",
+      normalizedNpmPrefixSpec ?? "",
+    ]),
   );
   if (values.size === 0) {
     return {};
@@ -264,5 +262,5 @@ export function resolvePluginInstallInvalidConfigPolicy(
   if (!request) {
     return "deny";
   }
-  return request.allowInvalidConfigRecovery === true ? "allow-bundled-recovery" : "deny";
+  return request.allowInvalidConfigRecovery === true ? "allow-plugin-recovery" : "deny";
 }

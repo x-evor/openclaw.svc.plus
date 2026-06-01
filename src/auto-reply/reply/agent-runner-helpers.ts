@@ -1,12 +1,11 @@
+import { isAudioFileName } from "@openclaw/media-core/mime";
 import {
   hasOutboundReplyContent,
   resolveSendableOutboundReplyParts,
 } from "openclaw/plugin-sdk/reply-payload";
 import { loadSessionStore } from "../../config/sessions.js";
-import { isAudioFileName } from "../../media/mime.js";
 import { normalizeVerboseLevel, type VerboseLevel } from "../thinking.js";
 import type { ReplyPayload } from "../types.js";
-import { scheduleFollowupDrain } from "./queue.js";
 import type { TypingSignaler } from "./typing-mode.js";
 
 const hasAudioMedia = (urls?: string[]): boolean =>
@@ -28,7 +27,7 @@ function readCurrentVerboseLevel(params: VerboseGateParams): VerboseLevel | unde
     return undefined;
   }
   try {
-    const store = loadSessionStore(params.storePath);
+    const store = loadSessionStore(params.storePath, { clone: false });
     const entry = store[params.sessionKey];
     return typeof entry?.verboseLevel === "string"
       ? normalizeVerboseLevel(entry.verboseLevel)
@@ -76,15 +75,6 @@ export const createShouldEmitToolResult = (params: VerboseGateParams): (() => bo
 
 export const createShouldEmitToolOutput = (params: VerboseGateParams): (() => boolean) => {
   return createVerboseGate(params, (level) => level === "full");
-};
-
-export const finalizeWithFollowup = <T>(
-  value: T,
-  queueKey: string,
-  runFollowupTurn: Parameters<typeof scheduleFollowupDrain>[1],
-): T => {
-  scheduleFollowupDrain(queueKey, runFollowupTurn);
-  return value;
 };
 
 export const signalTypingIfNeeded = async (

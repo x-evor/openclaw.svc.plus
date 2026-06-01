@@ -209,7 +209,7 @@ STT and TTS support two-level configuration with priority fallback:
         voice: "your-voice",
       },
       accounts: {
-        qq-main: {
+        "qq-main": {
           tts: {
             providers: {
               openai: { voice: "shimmer" },
@@ -266,6 +266,11 @@ Built-in commands intercepted before the AI queue:
 Append `?` to any command for usage help (for example `/bot-upgrade ?`).
 
 Admin commands (`/bot-me`, `/bot-upgrade`, `/bot-logs`, `/bot-clear-storage`, `/bot-streaming`, `/bot-approve`) are direct-message-only and require the sender's openid in an explicit non-wildcard `allowFrom` list. A wildcard `allowFrom: ["*"]` permits chat but does not grant admin command access. Group messages match against `groupAllowFrom` first and fall back to `allowFrom`. Running an admin command in a group returns a hint rather than silently dropping.
+
+When QQ Bot exec approvals use the default same-chat fallback, native approval
+button clicks follow the same explicit non-wildcard command allowlist. To grant
+approval-only access without broader command access, configure
+`channels.qqbot.execApprovals.approvers`.
 
 ## Engine architecture
 

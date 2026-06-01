@@ -1,3 +1,4 @@
+import { sortUniqueStrings } from "@openclaw/normalization-core/string-normalization";
 import { normalizeEnvVarKey } from "../infra/host-env-security.js";
 import type { GatewayServiceEnvironmentValueSource } from "./service-types.js";
 
@@ -22,6 +23,12 @@ export function isEnvironmentFileOnlySource(
   source: GatewayServiceEnvironmentValueSource | undefined,
 ): boolean {
   return source === "file";
+}
+
+export function hasEnvironmentFileSource(
+  source: GatewayServiceEnvironmentValueSource | undefined,
+): boolean {
+  return source === "file" || source === "inline-and-file";
 }
 
 function parseManagedServiceEnvKeys(value: string | undefined): Set<string> {
@@ -149,5 +156,5 @@ export function collectInlineManagedServiceEnvKeys(
     }
     inlineKeys.push(normalized);
   }
-  return [...new Set(inlineKeys)].toSorted();
+  return sortUniqueStrings(inlineKeys);
 }

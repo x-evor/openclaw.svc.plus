@@ -25,9 +25,12 @@ const PLUGIN_DOC_ALIASES = new Map([
   ["exa", "/tools/exa-search"],
   ["firecrawl", "/tools/firecrawl"],
   ["perplexity", "/tools/perplexity-search"],
+  ["policy", "/cli/policy"],
   ["tavily", "/tools/tavily"],
   ["tokenjuice", "/tools/tokenjuice"],
 ]);
+const MANUAL_SECTION_START = "<!-- openclaw-plugin-reference:manual-start -->";
+const MANUAL_SECTION_END = "<!-- openclaw-plugin-reference:manual-end -->";
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -77,7 +80,6 @@ function humanizeId(value) {
     ["api", "API"],
     ["aws", "AWS"],
     ["azure", "Azure"],
-    ["bluebubbles", "BlueBubbles"],
     ["byteplus", "BytePlus"],
     ["codex", "Codex"],
     ["cli", "CLI"],
@@ -112,6 +114,7 @@ function humanizeId(value) {
     ["opencode", "OpenCode"],
     ["openrouter", "OpenRouter"],
     ["otel", "OpenTelemetry"],
+    ["pixverse", "PixVerse"],
     ["qa", "QA"],
     ["qqbot", "QQ Bot"],
     ["qwen", "Qwen"],
@@ -374,8 +377,48 @@ function renderRelatedDocs(record) {
 ${record.docs.map((link) => `- ${docLink(link)}`).join("\n")}`;
 }
 
-function renderReferencePage(record) {
+function extractManualReferenceSections(content) {
+  const markerStart = content.indexOf(MANUAL_SECTION_START);
+  if (markerStart !== -1) {
+    const contentStart = markerStart + MANUAL_SECTION_START.length;
+    const markerEnd = content.indexOf(MANUAL_SECTION_END, contentStart);
+    if (markerEnd !== -1) {
+      return content.slice(contentStart, markerEnd).trim();
+    }
+  }
+
+  const surfaceMatch = /\n## Surface\n\n[^\n]*(?:\n|$)/u.exec(content);
+  if (!surfaceMatch?.index) {
+    return "";
+  }
+  const manualStart = surfaceMatch.index + surfaceMatch[0].length;
+  const relatedDocsStart = content.indexOf("\n## Related docs\n", manualStart);
+  const manualEnd = relatedDocsStart === -1 ? content.length : relatedDocsStart;
+  return content.slice(manualStart, manualEnd).trim();
+}
+
+function readManualReferenceSections(relativePath) {
+  const fullPath = path.join(ROOT, relativePath);
+  if (!fs.existsSync(fullPath)) {
+    return "";
+  }
+  return extractManualReferenceSections(fs.readFileSync(fullPath, "utf8"));
+}
+
+function renderManualReferenceSections(manualSections) {
+  if (!manualSections) {
+    return "";
+  }
+  return `${MANUAL_SECTION_START}
+
+${manualSections}
+
+${MANUAL_SECTION_END}`;
+}
+
+function renderReferencePage(record, manualSections = "") {
   const relatedDocs = renderRelatedDocs(record);
+  const manualBlock = renderManualReferenceSections(manualSections);
   return `---
 summary: "${record.description.replaceAll('"', '\\"')}"
 read_when:
@@ -394,7 +437,7 @@ ${record.description}
 
 ## Surface
 
-${record.surface}${relatedDocs ? `\n\n${relatedDocs}` : ""}
+${record.surface}${manualBlock ? `\n\n${manualBlock}` : ""}${relatedDocs ? `\n\n${relatedDocs}` : ""}
 `;
 }
 
@@ -489,9 +532,11 @@ function collectPluginRecords() {
 function writeGeneratedDocs(records) {
   fs.mkdirSync(path.join(ROOT, REFERENCE_DIR), { recursive: true });
   for (const record of records) {
+    const relativePath = path.join(REFERENCE_DIR, `${record.id}.md`);
+    const manualSections = readManualReferenceSections(relativePath);
     fs.writeFileSync(
-      path.join(ROOT, REFERENCE_DIR, `${record.id}.md`),
-      renderReferencePage(record),
+      path.join(ROOT, relativePath),
+      renderReferencePage(record, manualSections),
       "utf8",
     );
   }
@@ -501,10 +546,10 @@ function writeGeneratedDocs(records) {
 function readGeneratedDocs(records) {
   return [
     [REFERENCE_INDEX_PATH, renderReferenceIndex(records)],
-    ...records.map((record) => [
-      path.join(REFERENCE_DIR, `${record.id}.md`),
-      renderReferencePage(record),
-    ]),
+    ...records.map((record) => {
+      const relativePath = path.join(REFERENCE_DIR, `${record.id}.md`);
+      return [relativePath, renderReferencePage(record, readManualReferenceSections(relativePath))];
+    }),
   ];
 }
 
@@ -543,6 +588,27 @@ pnpm plugins:inventory:gen
 Source checkouts are different from npm installs: after \`pnpm install\`, bundled
 plugins load from \`extensions/<id>\` so local edits and package-local workspace
 dependencies are available.
+
+## Install a plugin
+
+Use the **Distribution** column to decide whether install is needed. Plugins that
+say \`included in OpenClaw\` are already present in the core package. Official
+external packages need one install, then a Gateway restart.
+
+For example, Discord is an official external package:
+
+\`\`\`bash
+openclaw plugins install @openclaw/discord
+openclaw gateway restart
+openclaw plugins inspect discord --runtime --json
+\`\`\`
+
+During the launch cutover, ordinary bare package specs still install from npm.
+Use \`clawhub:@openclaw/discord\` or \`npm:@openclaw/discord\` when you need an
+explicit source. After install, follow the plugin's setup doc, such as
+[Discord](/channels/discord), to add credentials and channel config. See
+[Manage plugins](/plugins/manage-plugins) for update, uninstall, and publishing
+commands.
 
 ## Core npm package
 

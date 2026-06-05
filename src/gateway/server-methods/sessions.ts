@@ -1,3 +1,5 @@
+// Sessions gateway methods implement list/create/patch/delete/reset/compact/
+// restore/preview/send flows over session stores, transcripts, and active runs.
 import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -2648,6 +2650,7 @@ export const sessionsHandlers: GatewayRequestHandlers = {
           config: cfg,
           provider: resolvedModel.provider,
           model: resolvedModel.model,
+          authProfileId: entry?.authProfileOverride,
           agentHarnessId: entry?.sessionId === sessionId ? entry.agentHarnessId : undefined,
           thinkLevel: normalizeThinkLevel(entry?.thinkingLevel),
           reasoningLevel: normalizeReasoningLevel(entry?.reasoningLevel),

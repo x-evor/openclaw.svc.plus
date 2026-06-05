@@ -1,3 +1,4 @@
+/** Cron timer loop, execution, catch-up, and run-result state transitions. */
 import { resolveFailoverReasonFromError } from "../../agents/failover-error.js";
 import { readSessionEntry } from "../../config/sessions/store-load.js";
 import type { SessionEntry } from "../../config/sessions/types.js";
@@ -116,6 +117,7 @@ type StartupCatchupPlan = {
   deferredJobs: StartupDeferredJob[];
 };
 
+/** Executes cron job core logic with the configured wall-clock timeout and watchdog cleanup. */
 export async function executeJobCoreWithTimeout(
   state: CronServiceState,
   job: CronJob,
@@ -133,6 +135,8 @@ export async function executeJobCoreWithTimeout(
     resolveTimeout = resolve;
   });
 
+  // Detached agent runs report setup phases separately; defer the wall-clock
+  // timeout until the runner starts so cold setup gets a clearer failure reason.
   const deferTimeoutUntilExecutionStart =
     job.sessionTarget !== "main" && job.payload.kind === "agentTurn";
   const triggerTimeout = (reason: string) => {
@@ -309,6 +313,8 @@ function resolveDeliveryState(params: {
   failureNotification: CronFailureNotificationDelivery;
 } {
   const primaryDeliveryRequested = resolveCronDeliveryPlan(params.job).requested;
+  // Failure destinations can receive alerts even when the primary delivery
+  // path was disabled or failed before direct delivery produced an ack.
   const alternateFailureNotificationRequested =
     params.runStatus === "error" &&
     params.job.delivery?.bestEffort !== true &&
@@ -372,11 +378,7 @@ function resolveDeliveryState(params: {
   return { status: "unknown", failureNotification: { status: "not-requested" } };
 }
 
-/**
- * Apply the result of a job execution to the job's state.
- * Handles consecutive error tracking, exponential backoff, one-shot disable,
- * and nextRunAtMs computation. Returns `true` if the job should be deleted.
- */
+/** Applies run outcome state, delivery state, backoff/next-run scheduling, and delete-after-run policy. */
 export function applyJobResult(
   state: CronServiceState,
   job: CronJob,
@@ -663,6 +665,8 @@ function applyOutcomeToStoredJob(state: CronServiceState, result: TimedCronRunOu
   const job = jobs.find((entry) => entry.id === result.jobId);
   if (!job) {
     if (result.status === "ok") {
+      // A manual/queued run may finish after the job was removed. Preserve the
+      // successful run log state without resurrecting the job in the store.
       applyJobResult(state, result.job, {
         status: result.status,
         error: result.error,
@@ -704,6 +708,7 @@ function applyOutcomeToStoredJob(state: CronServiceState, result: TimedCronRunOu
   }
 }
 
+/** Arms the cron timer for the next wake or a maintenance recheck. */
 export function armTimer(state: CronServiceState) {
   if (state.timer) {
     clearTimeout(state.timer);
@@ -773,6 +778,7 @@ function armRunningRecheckTimer(state: CronServiceState) {
   }, MAX_TIMER_DELAY_MS);
 }
 
+/** Handles one cron timer tick: load due jobs, reserve them, execute, persist, and re-arm. */
 export async function onTimer(state: CronServiceState) {
   if (state.running) {
     // Re-arm the timer so the scheduler keeps ticking even when a job is
@@ -1100,6 +1106,7 @@ function deferPendingBackoffMissedCronSlots(
   return changed;
 }
 
+/** Runs or defers missed startup jobs using restart catch-up limits. */
 export async function runMissedJobs(
   state: CronServiceState,
   opts?: { skipJobIds?: ReadonlySet<string>; deferAgentTurnJobs?: boolean },
@@ -1158,6 +1165,8 @@ async function planStartupCatchup(
       state.deps.startupDeferredMissedAgentJobDelayMs ??
         DEFAULT_STARTUP_DEFERRED_MISSED_AGENT_JOB_DELAY_MS,
     );
+    // Agent-turn startup catch-up is deferred by default so gateway/channel
+    // startup is not blocked by model/tool bootstrap work.
     const deferred: StartupDeferredJob[] = [
       ...deferredOverflow.map((job) => ({ jobId: job.id })),
       ...deferredAgentJobs.map((job) => ({ jobId: job.id, delayMs: deferredAgentDelayMs })),
@@ -1309,6 +1318,7 @@ async function applyStartupCatchupOutcomes(
   });
 }
 
+/** Executes a cron job without mutating persisted job state. */
 export async function executeJobCore(
   state: CronServiceState,
   job: CronJob,
@@ -1391,6 +1401,8 @@ async function executeMainSessionCronJob(
     typeof job.state.runningAtMs === "number" ? job.state.runningAtMs : state.deps.nowMs();
   const cronRunSessionKey = resolveMainSessionCronRunSessionKey(job, cronStartedAt);
   const deliveryContext = resolveMainSessionCronDeliveryContext(state, job);
+  // Main-session jobs enqueue text into a per-run child session so each cron
+  // execution has its own transcript and task drill-down target.
   state.deps.enqueueSystemEvent(text, {
     agentId: job.agentId,
     sessionKey: cronRunSessionKey,
@@ -1560,10 +1572,7 @@ async function executeDetachedCronJob(
   };
 }
 
-/**
- * Execute a job. This version is used by the `run` command and other
- * places that need the full execution with state updates.
- */
+/** Executes a cron job and applies the resulting state transitions in memory. */
 export async function executeJob(
   state: CronServiceState,
   job: CronJob,
@@ -1646,6 +1655,7 @@ function emitJobFinished(
   });
 }
 
+/** Clears the currently armed cron timer. */
 export function stopTimer(state: CronServiceState) {
   if (state.timer) {
     clearTimeout(state.timer);
@@ -1653,6 +1663,7 @@ export function stopTimer(state: CronServiceState) {
   state.timer = null;
 }
 
+/** Dispatches a cron event to the optional subscriber without letting subscriber errors escape. */
 export function emit(state: CronServiceState, evt: CronEvent) {
   try {
     state.deps.onEvent?.(evt);
